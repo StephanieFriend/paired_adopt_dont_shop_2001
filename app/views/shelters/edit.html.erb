@@ -1,0 +1,27 @@
+<div class="form-group">
+<h1>Update Shelter</h1>
+<br>
+<%= form_tag("/shelters/#{@shelter.id}", method: :patch) do %>
+  <%= label_tag "Name:" %>
+  <%= text_field_tag :name, @shelter.name %>
+  <br>
+  <br>
+  <%= label_tag "Address:" %>
+  <%= text_field_tag :address, @shelter.address %>
+  <br>
+  <br>
+  <%= label_tag "City:" %>
+  <%= text_field_tag :city, @shelter.city %>
+  <br>
+  <br>
+  <%= label_tag "State:" %>
+  <%= text_field_tag :state, @shelter.state %>
+  <br>
+  <br>
+  <%= label_tag "Zip Code:" %>
+  <%= text_field_tag :zip, @shelter.zip %>
+  <br>
+  <br>
+  <button type="submit">Submit</button>
+  <div>
+<% end %>

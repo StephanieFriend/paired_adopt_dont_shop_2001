@@ -1,0 +1,3 @@
+need to figure out how to add names to show up when I load local
+get the information from the DB or even create it correctly
+need populate the webpage with names from story 2 

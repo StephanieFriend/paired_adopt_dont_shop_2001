@@ -1,0 +1,22 @@
+<div class="form-group">
+<h1>Create New Pet</h1>
+
+<%= form_tag("/shelters/#{@shelter.id}/pets", method: :post) do %>
+  <%= label_tag "Image URL" %>
+  <%= text_field_tag :image %>
+  <br>
+  <%= label_tag "Name" %>
+  <%= text_field_tag :name %>
+  <br>
+  <%= label_tag "Description" %>
+  <%= text_field_tag :description %>
+  <br>
+  <%= label_tag "Approximate Age" %>
+  <%= text_field_tag :age %>
+  <br>
+  <%= label_tag "Sex " %>
+  <%= select_tag :sex, options_for_select(['male', 'female']) %>
+  <br>
+  <button type="submit">Submit</button>
+<% end %>
+<div>

@@ -1,0 +1,14 @@
+<div class="form-group">
+<h1>Shelters</h1>
+<br>
+<% @shelters.each do |shelter| %>
+  <h3><%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %></h3>
+  <%= link_to 'Edit', "/shelters/#{shelter.id}/edit" %>
+  <%= link_to 'Delete', "/shelters/#{shelter.id}", method: :delete, data: { confirm: "Are you sure?" } %>
+  <br>
+  <br>
+<% end %>
+<br>
+<br>
+<a href="/shelters/new">Create New Shelter</a>
+<div>

@@ -1,0 +1,23 @@
+<div class="form-group">
+<h1>Pets</h1>
+<br/>
+<br/>
+<% @pets.each do |pet| %>
+
+<h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %><h2>
+<img src=<%= pet.image %> <%= pet.id %>></img>
+<h2>Approximate Age:</h2>
+<%= pet.age %>
+<h2>Sex:</h2>
+<%= pet.sex %>
+<h2>Shelter:</h2>
+<%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %>
+<br/>
+<br/>
+<%= link_to 'Edit', "/pets/#{pet.id}/edit" %>
+<%= link_to 'Delete', "/pets/#{pet.id}", method: :delete ,  data: { confirm: "Are you sure?" }%>
+<br/>
+<br/>
+<br/>
+<div>
+<% end %>
