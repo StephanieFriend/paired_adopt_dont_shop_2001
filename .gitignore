@@ -17,5 +17,5 @@
 /yarn-error.log
 coverage
 .DS_Store
-.idea
 .byebug_history
+/.idea
