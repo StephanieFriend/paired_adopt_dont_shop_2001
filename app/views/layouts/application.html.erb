@@ -37,6 +37,11 @@
       </div>
     </nav>
 
+<div class="flash message">
+    <% flash.each do |type, message| %>
+         <p><%= message %></p>
+        <% end %>
+
   <%= yield %>
 
   <!-- Footer -->
