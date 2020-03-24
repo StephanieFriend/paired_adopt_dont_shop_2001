@@ -13,16 +13,17 @@
 <form action='/shelters/#{@shelter.id} <%= @shelter.id %>' method='post'>
   <%= link_to 'Edit', "/shelters/#{@shelter.id}/edit" %>
   <%= link_to 'Delete', "/shelters/#{@shelter.id}", method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'Add New Review', "/shelters/#{@shelter.id}/reviews" %>
 </form>
 
-<%@shelter.reviews.each do |review| %>
-  <h1><%= review.title %></h1>
-
-<br />
-  <%= review.rating %><br />
-  <%= review.content %><br />
+<div>
+<%@reviews.each do |review| %>
+  <h1><%= review.title %></h1><br/>
+  <%= review.rating %><br/>
+  <%= review.content %><br/>
   <% if review.image != nil %>
     <%= image_tag review.image %>
   <% end %>
   <br />
 <% end %>
+</div>

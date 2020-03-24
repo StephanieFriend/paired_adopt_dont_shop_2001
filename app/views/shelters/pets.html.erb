@@ -1,7 +1,7 @@
 <div class="form-group">
 	<h2>All Pets within Shelter: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %>
 		<h2>Pets available for adoption: <%= @shelter.pet_count%><h2>
-			<br>	
+			<br>
 			<br>
 			<% @pets.each do |pet| %>
 			<h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>

@@ -1,0 +1,19 @@
+<div class="form-group">
+  <h1>New Review</h1>
+
+  <%= form_tag("/shelters/#{@shelter.id}", method: :post) do %>
+    <%= label_tag "Title" %>
+    <%= text_field_tag :title %>
+    <br/>
+    <%= label_tag "Rating (1 - 10)" %>
+    <%= text_field_tag :rating %>
+    <br/>
+    <%= label_tag "Content" %>
+    <%= text_field_tag :content %>
+    <br/>
+    <%= label_tag "Picture (optional)" %>
+    <%= text_field_tag :image %>
+    <br/>
+    <button type="submit">Submit</button>
+  <% end %>
+  </div>
