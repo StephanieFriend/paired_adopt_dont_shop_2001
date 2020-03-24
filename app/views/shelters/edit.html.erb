@@ -1,27 +1,20 @@
-<div class="form-group">
-	<h1>Update Shelter</h1>
-	<br>
+<header id="page-header">
+	<h1>Edit Shelter Info</h1>
+</header>
+<main>
+	<section>
 	<%= form_tag("/shelters/#{@shelter.id}", method: :patch) do %>
 	  <%= label_tag "Name:" %>
-	  <%= text_field_tag :name, @shelter.name %>
-	  <br>
-	<br>
+	  <%= text_field_tag :name, @shelter.name %><br>
 	  <%= label_tag "Address:" %>
-	  <%= text_field_tag :address, @shelter.address %>
-	  <br>
-	<br>
+	  <%= text_field_tag :address, @shelter.address %><br>
 	  <%= label_tag "City:" %>
-	  <%= text_field_tag :city, @shelter.city %>
-	  <br>
-	<br>
+	  <%= text_field_tag :city, @shelter.city %><br>
 	  <%= label_tag "State:" %>
-	  <%= text_field_tag :state, @shelter.state %>
-	  <br>
-	<br>
+	  <%= text_field_tag :state, @shelter.state %><br>
 	  <%= label_tag "Zip Code:" %>
-	  <%= text_field_tag :zip, @shelter.zip %>
-	  <br>
-	<br>
-	<button type="submit">Submit</button>
-	<div>
+	  <%= text_field_tag :zip, @shelter.zip %><br>
+		<button type="submit">Submit</button>
 		<% end %>
+	</section>
+ </main>

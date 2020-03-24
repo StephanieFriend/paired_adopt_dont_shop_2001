@@ -1,7 +1,6 @@
 <header id="page-header">
   <h1>Edit Review Info</h1>
 </header>
-
 <main>
   <section>
     <%= form_tag "/reviews/#{@review.id}", method: :patch do %>
@@ -9,11 +8,11 @@
       <%= text_field_tag :title, @review.title %> <br/>
       <%= label_tag :rating %>
       <%= select_tag :Rating, options_for_select(['1', '2', '3', '4', '5']) %><br/>
-      <%= label_tag :Content %>
+      <%= label_tag :content %>
       <%= text_field_tag :content, @review.content %> <br/>
       <%= label_tag :Image, 'Image' %>
   	  <%= text_field_tag :image, @review.image %><br>
-      <button type="submit">Submit</button>
+    <button type="submit">Submit</button>
     <% end %>
   </section>
 </main>

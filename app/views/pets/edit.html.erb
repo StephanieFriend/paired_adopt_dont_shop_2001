@@ -1,20 +1,20 @@
-<div class="form-group">	<h1>Update Pet</h1>
+<header id="page-header">
+	<h1>Edit Pet Info</h1>
+</header>
+<main>
+	<section>
 	<%= form_tag("/pets/#{@pet.id}", method: :patch) do %>
-	<br>
 	  <%= label_tag "Image URL:" %>
-	  <%= text_field_tag :image, @pet.image %>
-	  <br>	<br>
+	  <%= text_field_tag :image, @pet.image %><br/>
 	  <%= label_tag "Name:" %>
-	  <%= text_field_tag :name, @pet.name %>
-	  <br>
+	  <%= text_field_tag :name, @pet.name %><br/>
 	  <%= label_tag "Description:" %>
-	  <%= text_field_tag :description, @pet.description %>
-	  <br>
+	  <%= text_field_tag :description, @pet.description %><br/>
 	  <%= label_tag "Age (approx):" %>
-	  <%= text_field_tag :age, @pet.age%>
-	  <br>		<br>
+	  <%= text_field_tag :age, @pet.age%><br/>
 	  <%= label_tag "Sex:" %>
-	  <%= text_field_tag :sex, @pet.sex%>
-	  <br>	<br>		<button type="submit">Submit</button>
+	  <%= text_field_tag :sex, @pet.sex%><br/><br/>
+	<button type="submit">Submit</button>
 	<% end %>
-	<div>
+	</section>
+</main>
