@@ -10,7 +10,6 @@ RSpec.describe 'As a Visitor' do
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews")
 
     fill_in :title, with: "Very Happy!"
-    fill_in :rating, with: "7"
     fill_in :content, with: "Great place to adopt a puppy! (Not great on kitties though.)"
     fill_in :image, with: "https://lh3.googleusercontent.com/proxy/VH2o2pIhKaUrNNs8PUtOHgayKXVKlaF2lObH0Xmq06RQAu4b4T_U-ZwKqWRd8aSs4-q7WW9-P8JuFPqIvsVwqGMQrL51Q4y7s4GaXx2HZUtYKwYtxlFmwlLH4-aPDkOCMd1lK72FqL75-Viyg_F2NnLs-wypnocyYz0QrEk_f8PDHiZNVIN5WilLHZAir1RFiM617jhlogVQVln6oppZWEWUFk4e7K5CIzJiIbc8LItt6nYmIg"
 
