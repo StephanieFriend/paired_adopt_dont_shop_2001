@@ -1,11 +1,11 @@
 <div class="form-group">
-<h2>All Pets within Shelter: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %>
-<h2>Pets available for adoption: <%= @shelter.pet_count%><h2>
+  <h2>All Pets within Shelter: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h2>
+<h2>Pets available for adoption: <%= @shelter.pet_count%></h2>
   <br>
   <br>
   <% @pets.each do |pet| %>
   <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
-  <%= image_tag ( pet.image ) %>
+  <%= image_tag pet.image %>
   <h3>Approximate Age:</h3>
   <%= pet.age %>
   <h3>Sex:</h3>
@@ -16,4 +16,4 @@
 <br>
 <br>
   <a href="/shelters/<%= @shelter.id %>/pets/new">Add Adoptable Pet</a>
-<div>
+</div>
