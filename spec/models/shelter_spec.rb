@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Rspec.describe Shelter, type: :model do
+RSpec.describe Shelter, type: :model do
 
   describe "relationships" do
     it {should have_many :pets}

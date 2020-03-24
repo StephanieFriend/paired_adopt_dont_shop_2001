@@ -46,13 +46,12 @@ Pet.destroy_all
                       status: "adoptable",
                       shelter_id: @shelter_2.id)
 
+@review_1 = @shelter_1.reviews.create({ title: "These guys were ok....ish",
+                                        rating: "3",
+                                        content: "Puppies were cool, staff not so much.",
+                                        image: 'https://i.redd.it/zz62ggz08k021.jpg'})
+
 
 puts "Created #{Shelter.count} Shelters"
 puts "Created #{Pet.count} Pets"
-
-# - image
-# - name
-# - description
-# - approximate age
-# - sex
-# - adoptable/pending adoption status
+puts "Created #{Review.count} Reviews"

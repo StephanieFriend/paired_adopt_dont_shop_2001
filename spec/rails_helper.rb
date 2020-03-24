@@ -119,15 +119,15 @@ RSpec.configure do |config|
                         status: "Test adoptable 4",
                         shelter_id: @shelter_2.id )
     @review_1 = @shelter_1.reviews.create({ title: "This is Awesome!",
-                                           rating: "9",
+                                           rating: "3",
                                            content: "Easy process and friendly staff.",
                                            image: 'https://i.imgur.com/wKls5bM.png'})
     @review_2 = @shelter_1.reviews.create({ title: "Thank you!",
-                                           rating: "8",
+                                           rating: "4",
                                            content: "Great selection and reasonable cost.",
                                            image: 'https://lh3.googleusercontent.com/proxy/VH2o2pIhKaUrNNs8PUtOHgayKXVKlaF2lObH0Xmq06RQAu4b4T_U-ZwKqWRd8aSs4-q7WW9-P8JuFPqIvsVwqGMQrL51Q4y7s4GaXx2HZUtYKwYtxlFmwlLH4-aPDkOCMd1lK72FqL75-Viyg_F2NnLs-wypnocyYz0QrEk_f8PDHiZNVIN5WilLHZAir1RFiM617jhlogVQVln6oppZWEWUFk4e7K5CIzJiIbc8LItt6nYmIg'})
     @review_3 = @shelter_2.reviews.create({ title: "These guys were ok....ish",
-                                            rating: "3",
+                                            rating: "2",
                                             content: "Puppies were cool, staff not so much.",
                                             image: 'https://i.redd.it/zz62ggz08k021.jpg'})
   end
