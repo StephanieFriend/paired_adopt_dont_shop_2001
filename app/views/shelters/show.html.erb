@@ -1,5 +1,5 @@
 <h1><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
-<h1><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" %><h1>
+<h1><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" %></h1>
   <h3>Address: <%= @shelter.address %></h3>
   <h3>City: <%= @shelter.city %></h3>
   <h3>State: <%= @shelter.state %></h3>
@@ -9,3 +9,13 @@
   <%= link_to 'Edit', "/shelters/#{@shelter.id}/edit" %>
   <%= link_to 'Delete', "/shelters/#{@shelter.id}", method: :delete, data: { confirm: "Are you sure?" } %>
 </form>
+
+<%@shelter.reviews.each do |review| %>
+  <h1><%= review.title %></h1><br/>
+  <%= review.rating %><br/>
+  <%= review.content %><br/>
+  <% if review.image != nil %>
+    <%= image_tag review.image %>
+  <% end %>
+  <br/>
+<% end %>
