@@ -24,6 +24,7 @@
   <% if review.image != nil %>
     <%= image_tag review.image %>
   <% end %>
-    <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
+    <%= link_to 'Edit', "/reviews/#{review.id}/edit" %>
+    <%= link_to 'Delete', "/reviews/#{review.id}", method: :delete %>
 <% end %>
 </div>
