@@ -25,6 +25,8 @@
               <a class="nav-link" href="/">Home
                 <span class="sr-only">(current)</span>
               </a>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Favorites (@favorited_pets_counter) </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/shelters">Shelters</a>
@@ -41,7 +43,7 @@
     <% flash.each do |type, message| %>
          <p><%= message %></p>
         <% end %>
-
+</div>
   <%= yield %>
 
   <!-- Footer -->
