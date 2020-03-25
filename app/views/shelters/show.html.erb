@@ -1,6 +1,6 @@
 <h1><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
 
-<h1><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" %></h1>
+<h2><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" %></h2>
 
 <h3>Address: <%= @shelter.address %></h3>
 
@@ -11,19 +11,29 @@
 <h3>Zip: <%= @shelter.zip %></h3>
 
 <form action='/shelters/#{@shelter.id} <%= @shelter.id %>' method='post'>
-  <%= link_to 'Edit', "/shelters/#{@shelter.id}/edit" %>
-  <%= link_to 'Delete', "/shelters/#{@shelter.id}", method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'Edit Shelter', "/shelters/#{@shelter.id}/edit" %>
+  <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete, data: { confirm: "Are you sure?" } %>
   <%= link_to 'Add New Review', "/shelters/#{@shelter.id}/reviews" %>
 </form>
-
-<div>
+<br/><br/>
+<h1>Reviews</h1>
+<div class="form-group">
 <%@reviews.each do |review| %>
-  <h1><%= review.title %></h1><br/>
-  <%= review.rating %><br/>
-  <%= review.content %><br/>
+    <p>
+  <h4><%= review.title %></h4>
+      <h5>Rating:</h5>
+      <%= review.rating %><br/>
+    <h5>Comments:</h5>
+    <p><%= review.content %></p>
   <% if review.image != nil %>
-    <%= image_tag review.image %>
-  <% end %>
-    <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
+    <%= image_tag review.image, :class => "image" %><br/>
+        <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
+      <%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete %>
+        <% else %>
+        <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
+      <%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete %>
+    <% end %>
+    </p>
+    <br/>
 <% end %>
 </div>
