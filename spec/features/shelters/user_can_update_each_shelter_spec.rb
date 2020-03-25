@@ -5,7 +5,7 @@ RSpec.describe "shelter update process", type: :feature do
 
     visit "/shelters/#{@shelter_1.id}"
 
-    click_link 'Edit'
+    click_link 'Edit Shelter'
 
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
   end
