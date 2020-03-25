@@ -1,23 +1,23 @@
 <div class="form-group">
 	<h1>Info</h1>
 	<h4><%= @pet.name %></h4>
-	<%= image_tag ( @pet.image ) %>
+	<%= image_tag @pet.image, :class => "image" %>
 	<h4>Description:</h4>
 	<%= @pet.description  %>
-	<br>
-	<br>
+	<br/>
+	<br/>
 	<h4>Approximate Age:</h4>
 	<%= @pet.age %>
-	<br>
-	<br>
+	<br/>
+	<br/>
 	<h4>Sex:</h4>
 	<%= @pet.sex %>
-	<br>
-	<br>
+	<br/>
+	<br/>
 	<h4>Status:</h4>
 	<%= @pet.status %>
-	<br>
-	<br>
+	<br/>
+	<br/>
 	<h4>Shelter:</h4>
 	<%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %>
 	<br/>
@@ -26,4 +26,4 @@
 	  <%= link_to 'Edit', "/pets/#{@pet.id}/edit" %>
 	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure?" }%>
 	</form>
-	<div>
+	</div>
