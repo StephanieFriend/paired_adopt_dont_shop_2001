@@ -11,8 +11,8 @@
 <h3>Zip: <%= @shelter.zip %></h3>
 
 <form action='/shelters/#{@shelter.id} <%= @shelter.id %>' method='post'>
-  <%= link_to 'Edit', "/shelters/#{@shelter.id}/edit" %>
-  <%= link_to 'Delete', "/shelters/#{@shelter.id}", method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'Edit Shelter', "/shelters/#{@shelter.id}/edit" %>
+  <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete, data: { confirm: "Are you sure?" } %>
   <%= link_to 'Add New Review', "/shelters/#{@shelter.id}/reviews" %>
 </form>
 <br/><br/>
@@ -28,8 +28,10 @@
   <% if review.image != nil %>
     <%= image_tag review.image, :class => "image" %><br/>
         <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
+      <%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete %>
         <% else %>
         <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
+      <%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete %>
     <% end %>
     </p>
     <br/>
