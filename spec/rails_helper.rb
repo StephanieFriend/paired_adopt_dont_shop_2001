@@ -74,17 +74,17 @@ RSpec.configure do |config|
     Pet.destroy_all
     Review.destroy_all
 
-     @shelter_1 = Shelter.create(name:     "Test Name",
-                                address:  "123 Test Test",
-                                city:     "Denver",
-                                state:    "CO",
-                                zip:      "80205")
+     @shelter_1 = Shelter.create(name: "Test Name",
+                                address: "123 Test Test",
+                                city: "Denver",
+                                state: "CO",
+                                zip: "80205")
 
-     @shelter_2 = Shelter.create(name:    "Test Paradise",
+     @shelter_2 = Shelter.create(name: "Test Paradise",
                                 address: "Test",
-                                city:    "Denver",
-                                state:   "CO",
-                                zip:     "80232")
+                                city: "Denver",
+                                state: "CO",
+                                zip: "80232")
 
      @pet_1 = Pet.create(image: "https://i.imgur.com/wKls5bM.png",
                         name:  "Test name 1",
@@ -92,7 +92,7 @@ RSpec.configure do |config|
                         age: "Test age 1",
                         sex: "Test sex 1",
                         status: "Test adoptable 1",
-                        shelter_id:  @shelter_1.id )
+                        shelter_id:  @shelter_1.id)
 
      @pet_2 = Pet.create(image: "https://i.imgur.com/wKls5bM.png",
                         name:  "Test name 2",
@@ -100,8 +100,7 @@ RSpec.configure do |config|
                         age: "Test age 2",
                         sex: "Test sex 2",
                         status: "Test adoptable 2",
-                        shelter_id:  @shelter_1.id )
-
+                        shelter_id:  @shelter_1.id)
 
      @pet_3 = Pet.create(image: "https://i.imgur.com/wKls5bM.png",
                         name:  "Test name 3",
@@ -109,7 +108,7 @@ RSpec.configure do |config|
                         age: "Test age 3",
                         sex: "Test sex 3",
                         status: "Test adoptable 3",
-                        shelter_id:  @shelter_2.id )
+                        shelter_id:  @shelter_2.id)
 
      @pet_4 = Pet.create(image: "https://i.imgur.com/wKls5bM.png",
                         name:  "Test name 4",
@@ -117,7 +116,8 @@ RSpec.configure do |config|
                         age: "Test age 4",
                         sex: "Test sex 4",
                         status: "Test adoptable 4",
-                        shelter_id: @shelter_2.id )
+                        shelter_id: @shelter_2.id)
+
     @review_1 = @shelter_1.reviews.create({ title: "This is Awesome!",
                                            rating: "3",
                                            content: "Easy process and friendly staff.",
