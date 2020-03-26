@@ -16,6 +16,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.flash-message {
+  color: green;
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -25px;
+}
 
 .nav-link{
   font-size: 30px;

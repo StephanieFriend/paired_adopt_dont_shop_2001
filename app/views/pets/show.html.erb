@@ -1,8 +1,8 @@
 <div class="form-group">
   <% if session[:favorites] != nil && session[:favorites].include?(@pet.id.to_s) %>
-    <%= link_to 'Un-favorite This Pet', "/pets/#{@pet.id}/favorite" %>
+    <%= link_to 'Un-favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "Are you sure?" }%> 
   <% else %>
-    <%= link_to 'Favorite This Pet', "/pets/#{@pet.id}/favorite" %>
+    <%= link_to 'Favorite This Pet', "/pets/#{@pet.id}/favorite",data: { confirm: "Are you sure?" }%>
   <% end %>
 	<h1>Info</h1>
 	<h4><%= @pet.name %></h4>
@@ -30,7 +30,5 @@
 	<form action='/pets/<%= @pet.id %>' method='post'>
 	  <%= link_to 'Edit', "/pets/#{@pet.id}/edit" %>
 	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure?" }%>
-	<button type="submit">Favorite this Pet</button>
 	</form>
-
 	</div>
