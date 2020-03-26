@@ -1,4 +1,5 @@
 <div class="form-group">
+
   <form action='/pets/<%= @pet.id %>/favorites' method='post'>
     <% if session[:favorites] != nil && session[:favorites].include?(@pet.id.to_s) %>
       <%= button_to 'Un-favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "Are you sure?" } %>
@@ -36,3 +37,5 @@
 	</form>
 
 	</div>
+
+<!-- rails partials  -->

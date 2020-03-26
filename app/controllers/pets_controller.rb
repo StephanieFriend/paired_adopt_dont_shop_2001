@@ -45,18 +45,21 @@ class PetsController < ApplicationController
     redirect_to '/pets'
   end
 
+  def get_pet_info
+    Pet.find(params[:id])
+  end
+
   def favorite
-    pet = Pet.find(params[:id])
     if session[:favorites] == nil
       session[:favorites] = [params[:id]]
-      flash[:favorited] = " #{pet.name} has been added to your favorites!"
+      flash[:favorited] = "#{get_pet_info.name} has been added to your favorites!"
     else
       if session[:favorites].include?(params[:id])
         session[:favorites].delete(params[:id])
-        flash[:favorited] = " #{pet.name} has been removed from your favorites!"
+        flash[:favorited] = "#{get_pet_info.name} has been removed from your favorites!"
       else
         session[:favorites] << params[:id]
-        flash[:favorited] = "#{pet.name} has been added to your favorites!"
+        flash[:favorited] = "#{get_pet_info.name} has been added to your favorites!"
       end
     end
     redirect_to "/pets/#{params[:id]}"
