@@ -14,7 +14,21 @@ Pet.destroy_all
                       state:    "CO",
                       zip:      "80205")
 
-@pet_1 = Pet.create(           image: "https://i.imgur.com/wKls5bM.png",
+@shelter_3 = Shelter.create(        name:     "Pet Oasis",
+                      address:  "4563 Royal Avenue",
+                      city:     "Fort Collins",
+                      state:    "CO",
+                      zip:      "80205")
+
+@shelter_4 = Shelter.create(        name:     "Adopt a Pet",
+                      address:  "7864 Collins",
+                      city:     "Aurora",
+                      state:    "CO",
+                      zip:      "80205")
+
+
+
+@pet_1 = Pet.create(  image: "https://i.imgur.com/wKls5bM.png",
                       name:  "Ziggy",
                       description: "He's a super chill dude",
                       age: "1",
@@ -38,18 +52,58 @@ Pet.destroy_all
                       status: "adoptable",
                       shelter_id: @shelter_2.id)
 
-@pet_4 = Pet.create(           image: "https://i.ytimg.com/vi/YEU_FIly708/maxresdefault.jpg",
-                      name:  "Winter",
-                      description: "Will tend to get in trouble but makes up for it with cuddles",
-                      age: "1",
+@pet_4 = Pet.create(  image: "https://apamo.org/wp-content/uploads/2020/03/A076662.jpg",
+                      name:  "Sasha",
+                      description: "Stays to herself except when the tin can gets open",
+                      age: "4",
+                      sex: "female",
+                      status: "adoptable",
+                      shelter_id: @shelter_4.id)
+
+@pet_5 = Pet.create(  image: "https://www.denvergov.org/content/dam/denvergov/Portals/682/images/AdoptableDog_MainAdoptablesImage.jpg",
+                      name:  "Gizmo",
+                      description: "Full of energy and a great family dog",
+                      age: "4",
+                      sex: "male",
+                      status: "adoptable",
+                      shelter_id: @shelter_3.id)
+
+@pet_6 = Pet.create(  image: "https://g.petango.com/photos/2241/5832e7cd-0325-4037-85ac-d108d894dafd.jpg",
+                      name:  "Molly",
+                      description: "Sweet and loving",
+                      age: "6",
                       sex: "female",
                       status: "adoptable",
                       shelter_id: @shelter_2.id)
+
+@pet_7 = Pet.create(  image: "https://g.petango.com/photos/2241/36841309-3e95-4b45-b411-90df7d99baac.jpg",
+                      name:  "Bubbles",
+                      description: "He enjoys the outdoors but will never complain about a lazy day inside",
+                      age: "3",
+                      sex: "male",
+                      status: "adoptable",
+                      shelter_id: @shelter_3.id)
+
 
 @review_1 = @shelter_1.reviews.create({ title: "These guys were ok....ish",
                                         rating: "3",
                                         content: "Puppies were cool, staff not so much.",
                                         image: 'https://i.redd.it/zz62ggz08k021.jpg'})
+
+@review_2 = @shelter_2.reviews.create({ title: "Best place to adopt a cat",
+                                        rating: "4",
+                                        content: "Every visit was easy and simple. Being able to interact with the cats is always fun. Having others volunteers or workers help with the cat interactions was great. ",
+                                        image: 'https://www.wellnesspetfood.com/sites/default/files/styles/blog_feature/public/media/images/shutterstock_624899891.jpg?itok=OTYZ3ygu'})
+
+@review_2 = @shelter_3.reviews.create({ title: "Would highly recommend",
+                                      rating: "5",
+                                      content: "This shelter goes beyond the call of duty.",
+                                      image: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Dog_in_animal_shelter_in_Washington%2C_Iowa.jpg'})
+
+@review_2 = @shelter_4.reviews.create({ title: "I will never go back",
+                                      rating: "1",
+                                      content: "This shelter needs to be inspected. The cleanliness is below average. Staff are never around.",
+                                    })
 
 
 puts "Created #{Shelter.count} Shelters"

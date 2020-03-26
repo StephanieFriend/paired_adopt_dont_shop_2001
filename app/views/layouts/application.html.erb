@@ -26,18 +26,21 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="shelters-link">
               <a class="nav-link" href="/shelters">Shelters</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/pets">Pets</a>
+            </li>
+            <li class="nav-item" id="favorite-indicator">
+              <a class="nav-link" href="/favorites">Favorites: <%= session[:favorites] == nil ? 0 : session[:favorites].length %></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-<div class="flash message">
+<div class="flash-message">
     <% flash.each do |type, message| %>
          <p><%= message %></p>
         <% end %>
