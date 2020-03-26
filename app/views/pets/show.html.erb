@@ -25,5 +25,7 @@
 	<form action='/pets/<%= @pet.id %>' method='post'>
 	  <%= link_to 'Edit', "/pets/#{@pet.id}/edit" %>
 	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure?" }%>
+	<button type="submit">Favorite this Pet</button>
 	</form>
+
 	</div>
