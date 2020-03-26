@@ -1,20 +1,43 @@
+
 <header id="page-header">
-  <h1>Shelter Review</h1>
+  <h1>Create Shelter</h1>
 </header>
 <main>
   <section>
     <%= form_tag("/shelters/", method: :post) do %>
-    <%= label_tag "Name" %>
-    <%= text_field_tag :name %><br>
-    <%= label_tag "Address" %>
-    <%= text_field_tag :address %> <br>
-    <%= label_tag "City" %>
-    <%= text_field_tag :city %><br>
-    <%= label_tag "State" %>
-    <%= text_field_tag :state %><br>
-    <%= label_tag "Zip Code" %>
-    <%= text_field_tag :zip %><br>
-  <button type="submit">Submit</button>
-  <% end %>
-  </section>
-</main>
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Name</label>
+          <%= text_field_tag :name %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputAddress">Address</label>
+          <%= text_field_tag :address %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <%= text_field_tag :city %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <%= text_field_tag :state %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputState">Zip</label>
+          <%= text_field_tag :zip %>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <% end %>
+    </form>
+  <section>
+<main>
