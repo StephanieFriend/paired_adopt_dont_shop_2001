@@ -4,7 +4,7 @@ class PetsController < ApplicationController
     all_pets = Pet.all
     if request.fullpath == '/favorites'
       if all_pets != nil && session[:favorites] != nil
-      @pets = all_pets.find_all { |pet| session[:favorites].include?(pet.id.to_s)}
+        @pets = all_pets.find_all { |pet| session[:favorites].include?(pet.id.to_s)}
       else
         @pets = []
       end
@@ -14,39 +14,34 @@ class PetsController < ApplicationController
   end
 
   def new
-    @shelter = Shelter.find(params[:id])
+    @shelter = get_shelter_info
   end
 
   def create
-    @shelter = Shelter.find(params[:id])
+    @shelter = get_shelter_info
     @pet = @shelter.pets.create!(pet_params)
     redirect_to "/shelters/#{@shelter.id}/pets"
   end
 
   def show
-    @pet = Pet.find(params[:id])
+    @pet = get_pet_info
   end
 
   def edit
-   @pet = Pet.find(params[:id])
+    @pet = get_pet_info
   end
 
   def update
-   pet = Pet.find(params[:id])
-   pet.update(pet_params)
+    get_pet_info.update(pet_params)
 
-   pet.save
+    get_pet_info.save
 
-   redirect_to "/pets/#{pet.id}"
+    redirect_to "/pets/#{get_pet_info.id}"
   end
 
   def destroy
     Pet.destroy(params[:id])
     redirect_to '/pets'
-  end
-
-  def get_pet_info
-    Pet.find(params[:id])
   end
 
   def favorite
@@ -72,8 +67,8 @@ class PetsController < ApplicationController
 
   private
 
-   def pet_params
-     params[:status] = "adoptable"
-     params.permit(:image, :name, :description, :age, :sex, :status)
-   end
+  def pet_params
+    params[:status] = "adoptable"
+    params.permit(:image, :name, :description, :age, :sex, :status)
+  end
 end

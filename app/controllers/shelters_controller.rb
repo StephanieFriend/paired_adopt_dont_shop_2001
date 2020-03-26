@@ -12,7 +12,7 @@ class SheltersController < ApplicationController
   end
 
  def edit
-   @shelter = Shelter.find(params[:id])
+   @shelter = get_shelter_info
  end
 
  def update
@@ -27,12 +27,12 @@ class SheltersController < ApplicationController
  end
 
  def show
-   @shelter = Shelter.find(params[:id])
+   @shelter = get_shelter_info
    @reviews = @shelter.reviews.all
  end
 
  def pets
-   @shelter = Shelter.find(params[:id])
+   @shelter = get_shelter_info
    @pets = @shelter.pets.all
  end
 
@@ -41,5 +41,4 @@ private
  def shelter_params
    params.permit(:name, :address, :city, :state, :zip)
  end
-
 end
