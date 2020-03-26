@@ -1,10 +1,15 @@
 class PetsController < ApplicationController
 
   def index
+    all_pets = Pet.all
     if request.fullpath == '/favorites'
-      @pets = Pet.all.find_all { |pet| session[:favorites].include?(pet.id.to_s)}
+      if all_pets != nil && session[:favorites] != nil
+      @pets = all_pets.find_all { |pet| session[:favorites].include?(pet.id.to_s)}
+      else
+        @pets = []
+      end
     else
-      @pets = Pet.all
+      @pets = all_pets
     end
   end
 
