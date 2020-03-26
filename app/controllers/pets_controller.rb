@@ -1,7 +1,11 @@
 class PetsController < ApplicationController
 
   def index
-    @pets = Pet.all
+    if request.fullpath == '/favorites'
+      @pets = Pet.all.find_all { |pet| session[:favorites].include?(pet.id.to_s)}
+    else
+      @pets = Pet.all
+    end
   end
 
   def new
@@ -34,6 +38,27 @@ class PetsController < ApplicationController
   def destroy
     Pet.destroy(params[:id])
     redirect_to '/pets'
+  end
+
+  def favorite
+    if session[:favorites] == nil
+      session[:favorites] = [params[:id]]
+      flash[:favorited] = "This pet has been added to your favorites!"
+    else
+      if session[:favorites].include?(params[:id])
+        session[:favorites].delete(params[:id])
+        flash[:favorited] = "This pet has been removed from your favorites!"
+      else
+        session[:favorites] << params[:id]
+        flash[:favorited] = "This pet has been added to your favorites!"
+      end
+    end
+    redirect_to "/pets/#{params[:id]}"
+  end
+
+  def delete_favorites
+    session[:favorites] = []
+    redirect_to '/favorites'
   end
 
   private
