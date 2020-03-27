@@ -6,7 +6,7 @@ RSpec.describe "After I've favorited a pet" do
 
     visit "/pets/#{@pet_1.id}"
 
-    click_button('Favorite This Pet')
+    click_on('Favorite This Pet')
 
     expect(page).not_to have_button('Favorite This Pet')
     expect(page).to have_button('Un-favorite This Pet')
@@ -16,7 +16,7 @@ RSpec.describe "After I've favorited a pet" do
 
     visit "/pets/#{@pet_1.id}"
 
-    click_button('Favorite This Pet')
+    click_on('Favorite This Pet')
 
     expect(page).to have_content('Favorites: 1')
 
