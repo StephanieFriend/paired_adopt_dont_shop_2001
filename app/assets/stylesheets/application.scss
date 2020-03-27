@@ -13,9 +13,14 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
 
+h1 {
+  text-align:center;
+  text-shadow: 8px 8px 10px blue;
+  font-size: 40px;
+}
 .flash-message {
   color: green;
   font-size: 25px;
@@ -26,6 +31,10 @@
   margin-top: -25px;
 }
 
+.delete-favorites{
+  align: cente;
+}
+
 .nav-link{
   font-size: 30px;
 }
@@ -34,3 +43,9 @@
   max-height: 200px;
   max-width: 200px;
 }
+
+.pet-page {border: 2px solid black;
+  outline: black solid 10px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;}
