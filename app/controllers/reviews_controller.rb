@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
       redirect_to "/shelters/#{@shelter.id}/reviews"
     end
   end
-
+  
   def edit
     @review = get_review_info
   end
@@ -35,14 +35,6 @@ class ReviewsController < ApplicationController
 
   def destroy
     review = get_review_info
-    Review.destroy(params[:id])
-
-    redirect_to "/shelters/#{review.shelter.id}"
-  end
-
-  private
-
-  def review_params
-    params.permit(:title, :rating, :content, :image)
+    dynamic_destroy(Review, "/shelters/#{review.shelter.id}")
   end
 end

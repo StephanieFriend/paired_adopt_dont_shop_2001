@@ -10,35 +10,27 @@ class SheltersController < ApplicationController
     Shelter.create(shelter_params)
     redirect_to '/shelters'
   end
+  
+  def edit
+    @shelter = get_shelter_info
+  end
 
- def edit
-   @shelter = get_shelter_info
- end
-
- def update
+  def update
     updated_shelter = Shelter.update(params[:id], shelter_params)
     redirect_to "/shelters/#{updated_shelter.id}"
- end
+  end
 
- def destroy
-   Shelter.destroy(params[:id])
+  def destroy
+    dynamic_destroy(Shelter, "/shelters")
+  end
 
-   redirect_to "/shelters"
- end
+  def show
+    @shelter = get_shelter_info
+    @reviews = @shelter.reviews.all
+  end
 
- def show
-   @shelter = get_shelter_info
-   @reviews = @shelter.reviews.all
- end
-
- def pets
-   @shelter = get_shelter_info
-   @pets = @shelter.pets.all
- end
-
-private
-
- def shelter_params
-   params.permit(:name, :address, :city, :state, :zip)
- end
+  def pets
+    @shelter = get_shelter_info
+    @pets = @shelter.pets.all
+  end
 end

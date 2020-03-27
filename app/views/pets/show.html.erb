@@ -1,13 +1,14 @@
-<div class="form-group">
+<div class="list-page">
 
   <form action='/pets/<%= @pet.id %>/favorites' method='post'>
     <% if session[:favorites] != nil && session[:favorites].include?(@pet.id.to_s) %>
-      <%= button_to 'Un-favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "Are you sure you want to remove #{@pet.name} from you favorites?"} %>
+      <%=link_to  'Un-favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "Are you sure you want to remove #{@pet.name} from you favorites?"}, class: 'btn btn-danger' %>
     <% else %>
-      <%= button_to 'Favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "#{@pet.name} will be added to your favorites?" } %>
+      <%= link_to 'Favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "#{@pet.name} will be added to your favorites?" }, class: 'btn btn-success'%>
     <% end %>
 	</form>
-
+  <br/>
+  <br/>
 	<h1>Info</h1>
 	<h4><%= @pet.name %></h4>
 	<%= image_tag @pet.image, :class => "image" %>
@@ -32,9 +33,10 @@
 	<br/>
 	<br/>
 	<form action='/pets/<%= @pet.id %>' method='post'>
-	  <%= link_to 'Edit', "/pets/#{@pet.id}/edit" %>
-	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure want to delete #{@pet.name}?" }%>
+	  <%= link_to 'Edit', "/pets/#{@pet.id}/edit", class: 'btn btn-info'%>
+	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure want to delete #{@pet.name}?" }, class: 'btn btn-info'%>
 	</form>
 	</div>
+
 
 <!-- rails partials  -->
