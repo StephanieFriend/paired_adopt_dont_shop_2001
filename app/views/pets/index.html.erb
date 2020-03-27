@@ -1,34 +1,5 @@
 <div class="form-group">
-	<h1>
-    Pets
-  </h1><br><br>
-
-<div class="delete-favorites">
-  <% if request.fullpath == '/favorites' %>
-    <% if session[:favorites] == nil || session[:favorites].length == 0 %>
-    <p>
-     You Have No Favorited Pets
-    </p>
-      <%else %>
-      <%= link_to 'Delete All Favorites', '/favorites/delete', class: 'btn btn-info', data: { confirm: "Are you sure you want to delete all favorited pets?" } %>
-      <% end %>
-    <% end %>
-			<br><br>
+<h1>Pets</h1>
+ <br/><br/>
+<%= render "shared/pet_list" %>
 </div>
-
-		<% @pets.each do |pet| %>
-		<div class="pet-page">
-		  <section id="<%= pet.id %>-section" class='pet'>
-		  <img src=<%= pet.image %> class="image" id="img-<%= pet.id %>"></img>
-		  <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: 'shelter-link' %></h2>
-		  <p><b>Approximate Age: </b><%= pet.age %>
-				<br>
-		  <b>Sex: </b><%= pet.sex %>
-			<br>
-		  <b>Shelter: </b><%= link_to "#{pet.shelter.name}", "shelters/#{pet.shelter_id}", class: 'shelter-link' %></p>
-		  <%= link_to 'Edit', "/pets/#{pet.id}/edit", class: 'btn btn-info' %>
-		  <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete, class: 'btn btn-info', data: { confirm: "Are you sure want to delete #{pet.name}?" } %>
-		</section>
-		</div>
-			<% end %>
-			<br><br>
