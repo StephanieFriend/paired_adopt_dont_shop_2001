@@ -2,9 +2,9 @@
 
   <form action='/pets/<%= @pet.id %>/favorites' method='post'>
     <% if session[:favorites] != nil && session[:favorites].include?(@pet.id.to_s) %>
-      <%= button_to 'Un-favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "Are you sure?" } %>
+      <%= button_to 'Un-favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "Are you sure you want to remove #{@pet.name} from you favorites?"} %>
     <% else %>
-      <%= button_to 'Favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "Are you sure?" } %>
+      <%= button_to 'Favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "#{@pet.name} will be added to your favorites?" } %>
     <% end %>
 	</form>
 
@@ -33,7 +33,7 @@
 	<br/>
 	<form action='/pets/<%= @pet.id %>' method='post'>
 	  <%= link_to 'Edit', "/pets/#{@pet.id}/edit" %>
-	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure?" }%>
+	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure want to delete #{@pet.name}?" }%>
 	</form>
 	</div>
 

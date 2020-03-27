@@ -10,7 +10,7 @@
      You Have No Favorited Pets
     </p>
       <%else %>
-      <%= link_to 'Delete All Favorites', '/favorites/delete', class: 'btn btn-info', data: { confirm: "Are you sure?" } %>
+      <%= link_to 'Delete All Favorites', '/favorites/delete', class: 'btn btn-info', data: { confirm: "Are you sure you want to delete all favorited pets?" } %>
       <% end %>
     <% end %>
 			<br><br>
@@ -27,7 +27,7 @@
 			<br>
 		  <b>Shelter: </b><%= link_to "#{pet.shelter.name}", "shelters/#{pet.shelter_id}", class: 'shelter-link' %></p>
 		  <%= link_to 'Edit', "/pets/#{pet.id}/edit", class: 'btn btn-info' %>
-		  <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete, class: 'btn btn-info', data: { confirm: "Are you sure?" } %>
+		  <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete, class: 'btn btn-info', data: { confirm: "Are you sure want to delete #{pet.name}?" } %>
 		</section>
 		</div>
 			<% end %>
