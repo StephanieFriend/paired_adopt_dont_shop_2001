@@ -1,4 +1,6 @@
+
 <% @pets.each do |pet| %>
+<div class="list-page">
   <h2>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
   </h2>
@@ -16,7 +18,7 @@
   </h2>
   <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %>
   <br/><br/>
-  <%= link_to 'Edit', "/pets/#{pet.id}/edit" %>
-  <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete ,  data: { confirm: "Are you sure?" }%>
-  <br/><br/><br/>
+  <%= link_to 'Edit', "/pets/#{pet.id}/edit", class: 'btn btn-info' %>
+  <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete ,  data: { confirm: "Are you sure?" }, class: 'btn btn-danger'%>
+  </div>
 <% end %>

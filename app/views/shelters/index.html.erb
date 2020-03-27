@@ -1,19 +1,15 @@
-<div class="form-group">
+<div class="list-page">
 	<h1>Shelters</h1>
-
 	<br>
 	<% @shelters.each do |shelter| %>
-	  <h3><%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %></h3>
-
-    <a href="/shelters/<%= "#{shelter.id}" %>/edit" class="btn btn-primary a-btn-slide-text">
-        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-        <span><strong>Edit</strong></span>
-   </a>
-
-	  <%= link_to 'Delete', "/shelters/#{shelter.id}", method: :delete, class: 'btn btn-danger', data: { confirm: "Are you sure you want to delete #{shelter.name}?" } %>
-	  <br>
+	<h3><%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %></h3>
+	<a href="/shelters/<%= "#{shelter.id}" %>/edit" class="btn btn-primary a-btn-slide-text">
+		<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+		<span><strong>Edit</strong></span>
+	</a>
+	<%= link_to 'Delete', "/shelters/#{shelter.id}", method: :delete, class: 'btn btn-danger', data: { confirm: "Are you sure you want to delete #{shelter.name}?" } %>
+	<br>
 	<br>
 	<% end %>
-
 	<%= link_to 'Create New Shelter', "/shelters/new", class: 'btn btn-outline-dark'%>
-	<div>
+	</div>

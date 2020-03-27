@@ -1,18 +1,9 @@
 class PetsController < ApplicationController
 
   def index
-    all_pets = Pet.all
-    if request.fullpath == '/favorites'
-      if all_pets != nil && session[:favorites] != nil
-        @pets = all_pets.find_all { |pet| session[:favorites].include?(pet.id.to_s)}
-      else
-        @pets = []
-      end
-    else
-      @pets = all_pets
-    end
+    @pets = Pet.all
   end
-
+  
   def new
     @shelter = get_shelter_info
   end
@@ -40,8 +31,7 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    Pet.destroy(params[:id])
-    redirect_to '/pets'
+    dynamic_destroy(Pet, '/pets')
   end
 
   def favorites
@@ -52,7 +42,6 @@ class PetsController < ApplicationController
       @pets = []
     end
   end
-
 
   def toggle_favorite
     if session[:favorites] == nil
@@ -73,12 +62,5 @@ class PetsController < ApplicationController
   def delete_favorites
     session[:favorites] = []
     redirect_to '/favorites'
-  end
-
-  private
-
-  def pet_params
-    params[:status] = "adoptable"
-    params.permit(:image, :name, :description, :age, :sex, :status)
   end
 end
