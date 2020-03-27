@@ -1,18 +1,36 @@
 <header id="page-header">
   <h1>New Review</h1>
 </header>
-  <main>
-    <section>
-  <%= form_tag("/shelters/#{@shelter.id}", method: :post) do %>
-    <%= label_tag "Title" %>
-    <%= text_field_tag :title %><br/>
-    <%= label_tag "Rating" %>
-    <%= select_tag :rating, options_for_select(['1', '2', '3', '4', '5']) %><br/>
-    <%= label_tag "Content" %>
-    <%= text_field_tag :content %><br/>
-    <%= label_tag "Picture (optional)" %>
-    <%= text_field_tag :image %><br/>
-  <button type="submit">Submit</button>
-  <% end %>
+<main>
+  <section>
+    <%= form_tag("/shelters/#{@shelter.id}", method: :post) do %>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputTitle">Title</label>
+            <%= text_field_tag :title %>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-7">
+            <label for="inputRating">Rating</label>
+            <%= select_tag :rating, options_for_select(['1', '2', '3', '4', '5']) %>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label for="inputContent">Content</label>
+            <%= text_field_tag :content %>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-9">
+            <label for="inputState">Picture (optional)</label>
+            <%= text_field_tag :image %>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    <% end %>
+    </form>
   </section>
 </main>
