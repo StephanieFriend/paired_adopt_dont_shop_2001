@@ -1,41 +1,34 @@
 <div class="form-group">
 	<h1>
     Pets
-  </h1>
+  </h1><br><br>
 
-
+<div class="delete-favorites">
   <% if request.fullpath == '/favorites' %>
     <% if session[:favorites] == nil || session[:favorites].length == 0 %>
     <p>
-      I Have No Favorited Pets
+     You Have No Favorited Pets
     </p>
       <%else %>
-      <%= link_to 'Delete All Favorites', '/favorites/delete' %>
+      <%= link_to 'Delete All Favorites', '/favorites/delete', class: 'btn btn-info', data: { confirm: "Are you sure?" } %>
       <% end %>
     <% end %>
+			<br><br>
+</div>
 
-
-  <br/><br/>
-  <% @pets.each do |pet| %>
-    <h2>
-      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
-    </h2>
-    <img src=<%= pet.image %> class="image">
-    <h2>
-      Approximate Age:
-    </h2>
-    <%= pet.age %>
-    <h2>
-      Sex:
-    </h2>
-    <%= pet.sex %>
-    <h2>
-      Shelter:
-    </h2>
-    <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %>
-    <br/><br/>
-    <%= link_to 'Edit', "/pets/#{pet.id}/edit" %>
-    <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete ,  data: { confirm: "Are you sure?" }%>
-    <br/><br/><br/>
-    </div>
-    <% end %>
+		<% @pets.each do |pet| %>
+		<div class="pet-page">
+		  <section id="<%= pet.id %>-section" class='pet'>
+		  <img src=<%= pet.image %> class="image" id="img-<%= pet.id %>"></img>
+		  <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}", class: 'shelter-link' %></h2>
+		  <p><b>Approximate Age: </b><%= pet.age %>
+				<br>
+		  <b>Sex: </b><%= pet.sex %>
+			<br>
+		  <b>Shelter: </b><%= link_to "#{pet.shelter.name}", "shelters/#{pet.shelter_id}", class: 'shelter-link' %></p>
+		  <%= link_to 'Edit', "/pets/#{pet.id}/edit", class: 'btn btn-info' %>
+		  <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete, class: 'btn btn-info', data: { confirm: "Are you sure?" } %>
+		</section>
+		</div>
+			<% end %>
+			<br><br>
