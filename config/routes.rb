@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   post '/shelters/:id/pets', to: 'pets#create'
   get '/shelters/:id/pets/new', to: 'pets#new'
   delete '/pets/:id', to: 'pets#destroy'
-  get '/pets/:id/favorite', to: 'pets#favorite'
-  post '/pets/:id/favorites', to: 'pets#favorite'
-  post '/pets/:id/favorite', to: 'pets#favorite'
+  get '/pets/:id/favorite', to: 'pets#toggle_favorite'
+  post '/pets/:id/favorites', to: 'pets#toggle_favorite'
+  post '/pets/:id/favorite', to: 'pets#toggle_favorite'
+  get '/favorites', to: 'pets#favorites'
   get '/favorites', to: 'pets#index'
   get '/favorites/delete', to: 'pets#delete_favorites'
 
@@ -29,5 +30,4 @@ Rails.application.routes.draw do
   get '/reviews/:id/edit', to: 'reviews#edit'
   patch '/reviews/:id', to: 'reviews#update'
   delete '/reviews/:id', to: 'reviews#destroy'
-
 end

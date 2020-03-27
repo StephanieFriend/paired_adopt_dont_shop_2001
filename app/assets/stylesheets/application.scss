@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
 
 .flash-message {
   color: green;
@@ -26,6 +26,16 @@
   margin-top: -25px;
 }
 
+ h1#dominant-header {
+  text-align:center;
+  text-shadow: 8px 8px 10px blue;
+  font-size: 40px;
+}
+
+.delete-favorites{
+  align: center
+}
+
 .nav-link{
   font-size: 30px;
 }
@@ -34,3 +44,9 @@
   max-height: 200px;
   max-width: 200px;
 }
+
+.list-page {border: 2px solid black;
+  outline: black solid 7px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;}
