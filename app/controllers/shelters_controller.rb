@@ -10,7 +10,7 @@ class SheltersController < ApplicationController
     Shelter.create(shelter_params)
     redirect_to '/shelters'
   end
-  
+
   def edit
     @shelter = get_shelter_info
   end
