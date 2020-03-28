@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20200328015832) do
     t.bigint "shelter_id"
     t.string "status"
     t.string "description"
+    t.bigint "adopt_application_id"
+    t.index ["adopt_application_id"], name: "index_pets_on_adopt_application_id"
     t.index ["shelter_id"], name: "index_pets_on_shelter_id"
   end
 
@@ -64,6 +66,7 @@ ActiveRecord::Schema.define(version: 20200328015832) do
 
   add_foreign_key "pet_applications", "applications"
   add_foreign_key "pet_applications", "pets"
+  add_foreign_key "pets", "applications", column: "adopt_application_id"
   add_foreign_key "pets", "shelters", on_delete: :cascade
   add_foreign_key "reviews", "shelters"
 end
