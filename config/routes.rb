@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get '/favorites', to: 'pets#index'
   get '/favorites/delete', to: 'pets#delete_favorites'
 
+  get '/applications/new', to: 'applications#new'
+  post '/applications', to: 'applications#create'
   get '/shelters/:id/reviews', to: 'reviews#new'
   post '/shelters/:id', to: 'reviews#create'
   get '/reviews/:id/edit', to: 'reviews#edit'
