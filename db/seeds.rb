@@ -85,27 +85,60 @@ Pet.destroy_all
                       shelter_id: @shelter_3.id)
 
 
-@review_1 = @shelter_1.reviews.create({ title: "These guys were ok....ish",
+@review_1 = @shelter_1.reviews.create( title: "These guys were ok....ish",
                                         rating: "3",
                                         content: "Puppies were cool, staff not so much.",
-                                        image: 'https://i.redd.it/zz62ggz08k021.jpg'})
+                                        image: 'https://i.redd.it/zz62ggz08k021.jpg')
 
-@review_2 = @shelter_2.reviews.create({ title: "Best place to adopt a cat",
+@review_2 = @shelter_2.reviews.create( title: "Best place to adopt a cat",
                                         rating: "4",
                                         content: "Every visit was easy and simple. Being able to interact with the cats is always fun. Having others volunteers or workers help with the cat interactions was great. ",
-                                        image: 'https://www.wellnesspetfood.com/sites/default/files/styles/blog_feature/public/media/images/shutterstock_624899891.jpg?itok=OTYZ3ygu'})
+                                        image: 'https://www.wellnesspetfood.com/sites/default/files/styles/blog_feature/public/media/images/shutterstock_624899891.jpg?itok=OTYZ3ygu')
 
-@review_2 = @shelter_3.reviews.create({ title: "Would highly recommend",
+@review_2 = @shelter_3.reviews.create( title: "Would highly recommend",
                                       rating: "5",
                                       content: "This shelter goes beyond the call of duty.",
-                                      image: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Dog_in_animal_shelter_in_Washington%2C_Iowa.jpg'})
+                                      image: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Dog_in_animal_shelter_in_Washington%2C_Iowa.jpg')
 
-@review_2 = @shelter_4.reviews.create({ title: "I will never go back",
+@review_2 = @shelter_4.reviews.create( title: "I will never go back",
                                       rating: "1",
                                       content: "This shelter needs to be inspected. The cleanliness is below average. Staff are never around.",
-                                    })
+                                    )
 
+@application_1 = Application.create(
+                      name:  "Meg",
+                      address: "3827 River Oaks Rd.",
+                      city: "Denver",
+                      state: "CO",
+                      zip: "87638",
+                      phone_number: "720-873-3467",
+                      description: "I already have several furry friends and they need friends!",
+                      pet_id: @pet_3.id)
+
+
+
+@application_2 = Application.create(
+                      name:  "Mike",
+                      address: "4572 Sherman Lane",
+                      city: "Denver",
+                      state: "CO",
+                      zip: "87628",
+                      phone_number: "720-563-3583",
+                      description: "My dog loves to eat dusters! So why not let him eat dusters with a friend",
+                      pet_id: @pet_7.id)
+
+
+@application_3 = Application.create(
+                      name:  "Cory",
+                      address: "3278 Wallabee Lane",
+                      city: "Denver",
+                      state: "CO",
+                      zip: "84834",
+                      phone_number: "303-283-3367",
+                      description: "Since owning my first cat I had to get a standing desk. I want to buy more things so need a reason.",
+                      pet_id: @pet_4.id)
 
 puts "Created #{Shelter.count} Shelters"
 puts "Created #{Pet.count} Pets"
 puts "Created #{Review.count} Reviews"
+puts "Created #{Application.count} Applications"
