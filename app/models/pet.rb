@@ -3,5 +3,10 @@ class Pet < ApplicationRecord
   has_many :pet_applications
   has_many :applications, through: :pet_applications
 
-  validates_presence_of :image, :name, :age, :sex, :description, :status
+  validates_presence_of :image,
+                        :name,
+                        :age,
+                        :sex,
+                        :description,
+                        :status
 end
