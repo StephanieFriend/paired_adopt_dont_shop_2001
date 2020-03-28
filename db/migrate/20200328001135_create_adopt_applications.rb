@@ -1,6 +1,6 @@
 class CreateAdoptApplications < ActiveRecord::Migration[5.1]
   def change
-    create_table :adopt_applications do |t|
+    create_table :applications do |t|
       t.string :name
       t.string :address
       t.string :city
