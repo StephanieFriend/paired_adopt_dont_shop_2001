@@ -14,11 +14,17 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    Application.create(application_params)
-    redirect_to "/favorites"
+    new_application = Application.new(application_params)
+    if new_application.save
+     params[:favorite_ids].each do |favorite_id|
+       PetApplication.create!({pet_id: favorite_id, application_id: new_application.id})
+       session[:favorites].delete(favorite_id)
+     end
+      flash[:applied] = "Your application for the selected pets has been submitted."
+      redirect_to "/favorites"
+    else
+      flash[:incomplete] = "You must complete all fields in order to submit the application."
+      redirect_to '/applications/new'
+    end
   end
-
-
-
-
 end
