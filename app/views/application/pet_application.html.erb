@@ -1,0 +1,10 @@
+<h1 class="pet-app">Pet Applicants</h1>
+
+<br/><br/>
+
+<ul class="app-names">
+  <% @pet.applications.each do |app| %>
+    <li><%= link_to "#{app.name}", "/applications/#{app.id}" %></li>
+    <br/>
+  <% end %>
+</ul>
