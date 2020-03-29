@@ -1,0 +1,16 @@
+<h1 class="pet-app">Pet Applicants</h1>
+
+<br/><br/>
+
+<ul class="app-names">
+ <% variable = @pet.applications.each do |app| %>
+    <li><%= link_to "#{app.name}", "/applications/#{app.id}" %></li>
+    <br/>
+  <% end %>
+</ul>
+
+<div class="no-apps">
+  <% if variable.length == 0 %>
+    <p>This pet has no current applications</p>
+  <% end %>
+</div>
