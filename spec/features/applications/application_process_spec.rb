@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Can submit adoption application", type: :feature do
   before(:each) do
+
     visit "/pets/#{@pet_1.id}"
     click_on('Favorite This Pet')
 
