@@ -13,7 +13,9 @@
 	<h1 id="dominant-header">Info</h1>
 	<h4><%= @pet.name %></h4>
   <% if @pet.status == "pending" %>
-    <%= "On hold for #{@pet.owner}"%><br/>
+      <% @pet.applications.each do |app| %>
+        <%= "On hold for #{app.name}"%><br/>
+      <% end %>
   <% end %>
   <h4>Adoption Status: <%= @pet.status %></h4><br/>
 	<%= image_tag @pet.image, :class => "image" %>

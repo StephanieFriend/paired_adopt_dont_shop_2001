@@ -24,9 +24,9 @@
       <section id="pet-links-<%= pet.id %>">
         <%= link_to pet.name, "/pets/#{pet.id}" %><br/>
         <% if pet.status == "adoptable" %>
-        <%= link_to "Approve Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/pending", method: :patch %>
+        <%= link_to "Approve Application For: #{pet.name}", "/pets/#{pet.id}/applications/approve_status", method: :get %>
         <% else %>
-        <%= link_to "Revoke Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/adoptable", method: :patch %>
+        <%= link_to "Revoke Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/revoke_status", method: :get %>
         <% end %>
       </section>
       <% end %>
