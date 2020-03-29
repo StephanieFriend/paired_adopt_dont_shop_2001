@@ -1,7 +1,14 @@
 <div class="form-group">
 
-  <h1>Favorite Pets</h1>
+  <h1>Favorite Pets<span class="applications-header">Current Applications</span></h1>
 
+  <div class="applications-header">
+    <% @applications.each do |app| %>
+      <% app.pets.each do |pet| %>
+      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>,
+        <% end %>
+    <% end %>
+  </div>
   <% if session[:favorites] == nil || session[:favorites].length == 0 %>
     <p>
       I Have No Favorited Pets
@@ -10,6 +17,7 @@
     <%= link_to 'Delete All Favorites', '/favorites/delete' %>
   <% end %>
 <%= link_to 'Adopt Favorited Pets', 'applications/new', class: 'btn btn-primary', method: :get %>
+
   <br/><br/>
 <%= render "shared/pet_list" %>
 </div>
