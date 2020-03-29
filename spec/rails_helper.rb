@@ -74,6 +74,7 @@ RSpec.configure do |config|
     Pet.destroy_all
     Review.destroy_all
 
+
      @shelter_1 = Shelter.create(name: "Test Name",
                                 address: "123 Test Test",
                                 city: "Denver",
