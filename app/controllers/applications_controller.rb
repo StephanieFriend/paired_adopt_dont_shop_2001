@@ -8,6 +8,21 @@ class ApplicationsController < ApplicationController
     @application = get_application_info
   end
 
+  def approve_status
+    pet = get_pet_info
+    pet.update_attribute(:status, pet.status = "pending")
+
+    redirect_to "/pets/#{pet.id}"
+  end
+
+  def revoke_status
+    application = Application.find(params[:application_id])
+    pet = get_pet_info
+    pet.update_attribute(:status, pet.status = "adoptable")
+
+    redirect_to "/applications/#{application.id}"
+  end
+
   def new
     all_pets = Pet.all
     if all_pets != nil && session[:favorites] != nil
