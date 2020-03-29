@@ -37,5 +37,8 @@ Rails.application.routes.draw do
   get '/applications/:id', to: 'applications#show'
   get '/pets/:id/pet_applications', to: 'applications#pet_application'
 
-  patch '/pets/:pet_id/applications/:application_id/:new_status', to:'pets#update_status'
+  get '/pets/:id/applications/approve_status', to: 'applications#approve_status'
+  get '/pets/:id/applications/:application_id/revoke_status', to: 'applications#revoke_status'
+
+  # patch '/pets/:pet_id/applications/:application_id/:new_status', to:'pets#update_status'
 end
