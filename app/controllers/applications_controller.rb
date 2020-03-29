@@ -4,6 +4,10 @@ class ApplicationsController < ApplicationController
     @pet = get_pet_info
   end
 
+  def show
+    @application = get_application_info
+  end
+
   def new
     all_pets = Pet.all
     if all_pets != nil && session[:favorites] != nil

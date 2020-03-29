@@ -113,9 +113,7 @@ Pet.destroy_all
                       zip: "87638",
                       phone_number: "720-873-3467",
                       description: "I already have several furry friends and they need friends!",
-                      pet_id: @pet_3.id)
-
-
+                    )
 
 @application_2 = Application.create(
                       name:  "Mike",
@@ -125,7 +123,7 @@ Pet.destroy_all
                       zip: "87628",
                       phone_number: "720-563-3583",
                       description: "My dog loves to eat dusters! So why not let him eat dusters with a friend",
-                      pet_id: @pet_7.id)
+                      )
 
 
 @application_3 = Application.create(
@@ -136,7 +134,11 @@ Pet.destroy_all
                       zip: "84834",
                       phone_number: "303-283-3367",
                       description: "Since owning my first cat I had to get a standing desk. I want to buy more things so need a reason.",
-                      pet_id: @pet_4.id)
+                      )
+
+PetApplication.create({pet_id: @pet_2.id, application_id: @application_1.id})
+PetApplication.create({pet_id: @pet_2.id, application_id: @application_1.id})
+PetApplication.create({pet_id: @pet_2.id, application_id: @application_1.id})
 
 puts "Created #{Shelter.count} Shelters"
 puts "Created #{Pet.count} Pets"

@@ -1,0 +1,27 @@
+<header id="page-header">
+  <h1 id="dominant-header" >Application Details</h1>
+</header>
+<main>
+  <section>
+    <h4>Name:</h4>
+     <%= @application.name %><br/>
+    <h4>Address:</h4>
+      <%= @application.address %><br/>
+    <h4>City:</h4>
+      <%= @application.city %><br/>
+    <h4>State:</h4>
+      <%= @application.state %><br/>
+    <h4>Zip:</h4>
+      <%= @application.zip %><br/>
+    <h4>Phone Number:</h4>
+      <%= @application.phone_number %><br/>
+    <h4>What Makes Your Home Ideal:</h4>
+      <%= @application.description %><br/>
+  </section>
+  <section>
+    <h3>Pets Applied For</h3>
+    <% @application.pets.each do |pet|%>
+      <p><%= link_to pet.name, "/pets/#{pet.id}" %><br/>
+    <% end %>
+  </section>
+<main>

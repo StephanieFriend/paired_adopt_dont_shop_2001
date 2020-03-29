@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     Review.find(params[:id])
   end
 
+  def get_application_info
+    Application.find(params[:id])
+  end 
+
   def pet_params
     params[:status] = "adoptable"
     params.permit(:image, :name, :description, :age, :sex, :status)
