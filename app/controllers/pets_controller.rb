@@ -3,7 +3,7 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
   end
-  
+
   def new
     @shelter = get_shelter_info
   end
@@ -28,6 +28,25 @@ class PetsController < ApplicationController
     get_pet_info.save
 
     redirect_to "/pets/#{get_pet_info.id}"
+  end
+
+  def update_status
+    pet = Pet.find(params[:pet_id])
+    pet.update({
+      status: params[:status] == "adoptable" ? "adoptable" : "pending"
+      })
+    pet.save
+    if params[:status] == "pending"
+      pet_application = PetApplication.where(application_id: params[:application_id], pet_id: params[:pet_id]).first
+      pet_application.update(approved: true)
+      pet_application.save
+      redirect_to "/pets/#{params[:pet_id]}"
+    else
+      pet_application = PetApplication.where(application_id: params[:application_id], pet_id: params[:pet_id]).first
+      pet_application.update(approved: false)
+      pet_application.save
+      redirect_to "/applications/#{params[:application_id]}"
+    end
   end
 
   def destroy
