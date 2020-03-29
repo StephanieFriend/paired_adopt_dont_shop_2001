@@ -16,7 +16,6 @@ RSpec.describe "pet show page", type: :feature do
     expect(page).to_not have_content(@pet_2.description)
     expect(page).to_not have_content(@pet_2.age)
     expect(page).to_not have_content(@pet_2.sex)
-    expect(page).to_not have_content(@pet_2.status)
   end
 
   it "can see another pet with all info" do
@@ -34,6 +33,5 @@ RSpec.describe "pet show page", type: :feature do
     expect(page).to_not have_content(@pet_1.description)
     expect(page).to_not have_content(@pet_1.age)
     expect(page).to_not have_content(@pet_1.sex)
-    expect(page).to_not have_content(@pet_1.status)
   end
 end

@@ -12,6 +12,10 @@
   <br/><br/>
 	<h1 id="dominant-header">Info</h1>
 	<h4><%= @pet.name %></h4>
+  <% if @pet.status == "pending" %>
+    <%= "On hold for #{@pet.owner}"%><br/>
+  <% end %>
+  <h4>Adoption Status: <%= @pet.status %></h4><br/>
 	<%= image_tag @pet.image, :class => "image" %>
 	<h4>Description:</h4>
 	<%= @pet.description  %><br/>
@@ -19,11 +23,10 @@
 	<%= @pet.age %><br/>
 	<h4>Sex:</h4>
 	<%= @pet.sex %><br/>
-	<h4>Status:</h4>
-	<%= @pet.status %><br/>
 	<h4>Shelter:</h4>
 	<%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %><br/>
   </section>
+
 	<form action='/pets/<%= @pet.id %>' method='post'>
 	  <%= link_to 'Edit', "/pets/#{@pet.id}/edit", class: 'btn btn-info'%>
 	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure want to delete #{@pet.name}?" }, class: 'btn btn-info'%>
