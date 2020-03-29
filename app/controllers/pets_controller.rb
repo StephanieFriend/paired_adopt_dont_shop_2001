@@ -35,6 +35,7 @@ class PetsController < ApplicationController
   end
 
   def favorites
+    @applications = Application.all
     all_pets = Pet.all
     if all_pets != nil && session[:favorites] != nil
       @pets = all_pets.find_all { |pet| session[:favorites].include?(pet.id.to_s)}
