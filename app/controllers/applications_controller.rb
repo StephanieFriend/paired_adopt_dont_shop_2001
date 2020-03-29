@@ -31,4 +31,8 @@ class ApplicationsController < ApplicationController
       redirect_to '/applications/new'
     end
   end
+
+  def pet_application
+    @pet = get_pet_info
+  end
 end
