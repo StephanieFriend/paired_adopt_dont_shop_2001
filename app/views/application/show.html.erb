@@ -17,11 +17,20 @@
       <%= @application.phone_number %><br/>
     <h4>What Makes Your Home Ideal:</h4>
       <%= @application.description %><br/>
-  </section>
-  <section>
-    <h3>Pets Applied For</h3>
-    <% @application.pets.each do |pet|%>
-      <p><%= link_to pet.name, "/pets/#{pet.id}" %><br/>
-    <% end %>
-  </section>
-</main>
+    </section>
+    <section>
+      <h3>Pets Applied For</h3>
+      <% @application.pets.each do |pet|%>
+      <section id="pet-links<%= pet.id %>">
+        <%= link_to pet.name, "/pets/#{pet.id}" %><br/>
+        <% @petapps.each do |petapp| %>
+        <% if petapp.approved && petapp.application_id == @application.id%>
+          <%= link_to "Revoke Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/revoke_status", method: :patch %>
+        <% else %>
+          <%= link_to "Approve Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/approve_status", method: :patch %>
+        <% end %>
+          <% end %>
+      </section>
+      <% end %>
+    </section>
+  </main>

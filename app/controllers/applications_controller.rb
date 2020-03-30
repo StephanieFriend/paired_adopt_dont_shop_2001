@@ -6,6 +6,32 @@ class ApplicationsController < ApplicationController
 
   def show
     @application = get_application_info
+    @petapps = @application.pet_applications.all
+  end
+
+  def approve_status
+    application = Application.find(params[:application_id])
+    pet = Pet.find(params[:pet_id])
+    if pet.status == "pending"
+      flash[:notice] = "Not Taking New Applications At This Time"
+      redirect_to "/applications/#{application.id}"
+    else
+      pet.update_attribute(:status, "pending")
+      pet_application = PetApplication.where(application_id: params[:application_id], pet_id: params[:pet_id]).first
+      pet_application.update(approved: true)
+
+      redirect_to "/pets/#{pet.id}"
+    end
+  end
+
+  def revoke_status
+    application = Application.find(params[:application_id])
+    pet = Pet.find(params[:pet_id])
+    pet.update_attribute(:status, "adoptable")
+    pet_application = PetApplication.where(application_id: params[:application_id], pet_id: params[:pet_id]).first
+    pet_application.update(approved: false)
+
+    redirect_to "/applications/#{application.id}"
   end
 
   def new

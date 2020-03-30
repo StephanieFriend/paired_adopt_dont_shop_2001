@@ -15,7 +15,14 @@
  */
 // @import "bootstrap-sprockets";
 // @import "bootstrap";
+h4#pet-show{
+  font-size: 20px;
+}
 
+.create-new-shelter {
+  background: black;
+  color: white;
+}
 .flash-message {
   color: green;
   font-size: 25px;
@@ -54,6 +61,8 @@
 
 .applications-header {
   float: right;
+  word-spacing: 10px;
+  padding-right: 20px;
 }
 
 h1.pet-app {
@@ -72,4 +81,73 @@ div.no-apps {
   font-size: 40px;
   font-style: italic;
   margin-top: 100px;
+}
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.nav-item{
+  color: white;
+}
+
+ .navbar-nav .nav-link > .fa {
+  position: relative;
+  width: 36px;
+  padding: 10px;
+  display: inline-block;
+  color: white;
+}
+
+#navbarSupportedContent{
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+
+
+}
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  font-size: 1.7rem;
+  position: absolute;
+  right: 0;
+  font-family: sans-serif;
+  display: inline-block;
+  color: white;
+  position: absolute;
+}
+
+@media (min-width: 992px) {
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right:30px;
+    color: white;
+
+  }
+
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
+    display: inline-block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+    color: white;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+.navbar body > nav{
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar  {
+  text-align: center;
 }
