@@ -16,6 +16,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.application-page{
+  padding-left:50px;
+  text-align:center;
+
+
+}
+.container1 {
+   max-width: 100px;
+   border-style: solid;
+   padding: 10px;
+}
+p#app-info{
+  font-size: 15px;
+
+
+
+}
+h4#h4header{
+  font-size: 20px;
+}
+
 .dog{
   max-height: 10px;
   max-width: 10px;
