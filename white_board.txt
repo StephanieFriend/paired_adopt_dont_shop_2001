@@ -11,4 +11,11 @@ Create a test for no image in user_can_see_reviews_via_shelter_page
   # end
 
 
-getting nil class on owner
+How to return single pet name (uniq or if statement?) - sql distinct
+method
+grab all pets . call distinct or uniq . call that method within the app view
+
+Testing css tags
+use classes not ids
+name general petappinfo
+Heroku cant push something with ssh

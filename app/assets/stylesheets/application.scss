@@ -13,8 +13,14 @@
  *= require_tree .
  *= require_self
  */
-// @import "bootstrap-sprockets";
-// @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.dog{
+  max-height: 10px;
+  max-width: 10px;
+}
+
 h4#pet-show{
   font-size: 20px;
 }
@@ -105,13 +111,12 @@ div.no-apps {
 
 }
 .navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   position: absolute;
   right: 0;
   font-family: sans-serif;
   display: inline-block;
   color: white;
-  position: absolute;
 }
 
 @media (min-width: 992px) {
