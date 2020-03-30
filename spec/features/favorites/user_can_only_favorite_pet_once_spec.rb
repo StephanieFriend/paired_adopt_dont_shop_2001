@@ -18,7 +18,6 @@ RSpec.describe "After I've favorited a pet" do
 
     click_on('Favorite This Pet')
 
-    expect(page).to have_content('Favorites: 1')
 
     click_on('Un-favorite This Pet')
 
@@ -26,6 +25,5 @@ RSpec.describe "After I've favorited a pet" do
     expect(page).to have_content("#{  @pet_1.name} has been removed from your favorites")
     expect(page).to have_link('Favorite This Pet')
     expect(page).not_to have_link('Un-favorite This Pet')
-    expect(page).to have_content('Favorites: 0')
  end
 end
