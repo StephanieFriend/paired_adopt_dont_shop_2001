@@ -134,9 +134,9 @@ Application.destroy_all
                       state: "CO",
                       zip: "84834",
                       phone_number: "303-283-3367",
-                      description: "Since owning my first cat I had to get a standing desk. I want to buy more things so need a reason.")
+                      description: "Since owning my first cat I had to get a standing desk. I feel it's only right to assemble the ultimate cat team to conquer the almighty desk!")
 
-PetApplication.create(pet_id: @pet_3.id, application_id: @application_1.id)
+PetApplication.create(pet_id: @pet_2.id, application_id: @application_1.id)
 PetApplication.create(pet_id: @pet_7.id, application_id: @application_2.id)
 PetApplication.create(pet_id: @pet_4.id, application_id: @application_3.id)
 
