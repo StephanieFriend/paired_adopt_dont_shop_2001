@@ -9,38 +9,13 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" />
 
-  </head>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/js/mdb.min.js"></script>
+<script src="https://kit.fontawesome.com/5716af9226.js" crossorigin="anonymous"></script></head>
 
 <body>
-    <!-- Navigation -->
-    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item" id="shelters-link">
-              <a class="nav-link" href="/shelters">Shelters</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/pets">Pets</a>
-            </li>
-            <li class="nav-item" id="favorite-indicator">
-              <a class="nav-link" href="/favorites">Favorites: <%= session[:favorites] == nil ? 0 : session[:favorites].length %></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav> -->
-    <!--  -->
-    <!------ Include the above in your HEAD tag ---------->
 
     <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#"></a>
@@ -71,7 +46,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/favorites">
-              <i class="fa fa-envelope-o">
+              <i class="fa fa-heart">
                 <span class="badge badge-danger"><%= session[:favorites] == nil ? 0 : session[:favorites].length %></span>
               </i>
               Favorites
@@ -88,45 +63,46 @@
   <%= yield %>
 
   <!-- Footer -->
-  <br><br><br><br><br>
-   <footer class="footer">
-     <div class="container">
-       <div class="row align-items-center">
-         <div class="col-md-4">
-           <span class="copyright">Copyright &copy; AdoptDontShop 2020</span>
-         </div>
-         <div class="col-md-4">
-           <ul class="list-inline social-buttons">
-             <li class="list-inline-item">
-               <a href="#">
-                 <i class="fab fa-twitter"></i>
-               </a>
-             </li>
-             <li class="list-inline-item">
-               <a href="#">
-                 <i class="fab fa-facebook-f"></i>
-               </a>
-             </li>
-             <li class="list-inline-item">
-               <a href="#">
-                 <i class="fab fa-linkedin-in"></i>
-               </a>
-             </li>
-           </ul>
-         </div>
-         <div class="col-md-4">
-           <ul class="list-inline quicklinks">
-             <li class="list-inline-item">
-               <a href="#">Privacy Policy</a>
-             </li>
-             <li class="list-inline-item">
-               <a href="#">Terms of Use</a>
-             </li>
-           </ul>
-         </div>
-       </div>
-     </div>
-   </footer>
+  <!-- Footer -->
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="page-footer font-small blue darken-3">
 
-</body>
-</html>
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-12 py-5">
+        <div class="mb-5 flex-center">
+
+          <a href="https://github.com/tylertomlinson"<i style="margin-right: 0.5em; color: #EEEEEE;" class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i> Tyler</a>
+          <a href="https://github.com/StephanieFriend/paired_adopt_dont_shop_2001"<i style="margin-right: 0.5em; color: #EEEEEE;" class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i> Project Repo</a>
+					<a href="https://github.com/StephanieFriend"<i style="margin-right: 0.5em; color: #EEEEEE;" class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i> Stephanie</a>
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://adopt-dont-shop-paired-tt-sf.herokuapp.com/"> AdoptDontShop.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

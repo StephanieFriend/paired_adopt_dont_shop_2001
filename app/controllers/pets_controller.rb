@@ -10,17 +10,21 @@ class PetsController < ApplicationController
 
   def create
     @shelter = get_shelter_info
-    @pet = @shelter.pets.create!(pet_params)
-    redirect_to "/shelters/#{@shelter.id}/pets"
+    @pet = @shelter.pets.create(pet_params)
+    if @pet.save
+      redirect_to "/shelters/#{@shelter.id}/pets"
+    else
+      flash[:error] =  @pet.errors.full_messages.to_sentence
+      redirect_to "/shelters/#{@shelter.id}/pets/new"
+    end
   end
 
   def show
     @pet = get_pet_info
     if @pet.pet_applications.find_by(approved: true) != nil
      @application_name = @pet.pet_applications.find_by(approved: true).application.name
-     end
+    end
   end
-
 
   def edit
     @pet = get_pet_info
@@ -36,6 +40,7 @@ class PetsController < ApplicationController
 
   def destroy
     dynamic_destroy(Pet, '/pets')
+    session[:favorites] = [params[:id]]
   end
 
   def favorites

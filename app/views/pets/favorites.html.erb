@@ -5,10 +5,9 @@
   <div class="applications-header">
     <% @applications.each do |app| %>
       <% app.pets.each do |pet| %>
-
       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
         <% end %>
-    <% end %>
+      <% end %>
   </div>
   <% if session[:favorites] == nil || session[:favorites].length == 0 %>
     <p>
