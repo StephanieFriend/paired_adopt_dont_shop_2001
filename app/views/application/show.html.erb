@@ -4,29 +4,29 @@
 <main>
   <section>
     <h4>Name:</h4>
-     <%= @application.name %><br/>
+     <%= @application.name %><br/><br/>
     <h4>Address:</h4>
-      <%= @application.address %><br/>
+      <%= @application.address %><br/><br/>
     <h4>City:</h4>
-      <%= @application.city %><br/>
+      <%= @application.city %><br/><br/>
     <h4>State:</h4>
-      <%= @application.state %><br/>
+      <%= @application.state %><br/><br/>
     <h4>Zip:</h4>
-      <%= @application.zip %><br/>
+      <%= @application.zip %><br/><br/>
     <h4>Phone Number:</h4>
-      <%= @application.phone_number %><br/>
+      <%= @application.phone_number %><br/><br/>
     <h4>What Makes Your Home Ideal:</h4>
-      <%= @application.description %><br/>
+      <%= @application.description %><br/><br/>
     </section>
     <section>
-      <h3>Pets Applied For</h3>
+      <h3>Pets Applied For</h3><br/>
       <% @application.pets.each do |pet|%>
       <section id="pet-links<%= pet.id %>">
-        <%= link_to pet.name, "/pets/#{pet.id}" %><br/>
+        <%= link_to pet.name, "/pets/#{pet.id}", class: 'btn btn-primary'%><br/>
         <% @petapps.each do |petapp| %>
-        <% if petapp.approved && petapp.application_id == @application.id%>
+        <% if petapp.approved && petapp.application_id == @application.id%><br/>
           <%= link_to "Revoke Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/revoke_status", method: :patch, class: 'btn btn-danger'%>
-        <% else %>
+        <% else %><br/>
           <%= link_to "Approve Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/approve_status", method: :patch, class: 'btn btn-success'%>
         <% end %>
           <% end %>
