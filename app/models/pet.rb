@@ -9,9 +9,4 @@ class Pet < ApplicationRecord
                         :sex,
                         :description,
                         :status
-
-  def change_adoptable_status
-    status ? "adoptable" : "pending"
-  end
-
 end
