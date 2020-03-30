@@ -5,7 +5,8 @@
   <div class="applications-header">
     <% @applications.each do |app| %>
       <% app.pets.each do |pet| %>
-      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>,
+
+      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
         <% end %>
     <% end %>
   </div>
@@ -17,7 +18,6 @@
     <%= link_to 'Delete All Favorites', '/favorites/delete' %>
   <% end %>
 <%= link_to 'Adopt Favorited Pets', 'applications/new', class: 'btn btn-primary', method: :get %>
-
   <br/><br/>
 <%= render "shared/pet_list" %>
 </div>
