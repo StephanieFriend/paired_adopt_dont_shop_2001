@@ -16,6 +16,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = get_pet_info
+    @application_name = @pet.pet_applications.find_by(approved: true).application.name
   end
 
   def edit

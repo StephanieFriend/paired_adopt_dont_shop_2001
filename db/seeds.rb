@@ -1,5 +1,6 @@
 Shelter.destroy_all
 Pet.destroy_all
+Application.destroy_all
 
 @shelter_1 = Shelter.create(       name:     "Pet Palace",
                       address:  "12483 Jefferson Drive",

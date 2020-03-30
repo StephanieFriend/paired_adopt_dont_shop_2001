@@ -14,7 +14,4 @@ class Pet < ApplicationRecord
     status ? "adoptable" : "pending"
   end
 
-  def owner
-   # pet_applications.where(approved: true).first.applications
-  end
 end

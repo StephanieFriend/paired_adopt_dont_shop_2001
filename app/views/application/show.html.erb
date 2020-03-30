@@ -23,11 +23,13 @@
       <% @application.pets.each do |pet|%>
       <section id="pet-links-<%= pet.id %>">
         <%= link_to pet.name, "/pets/#{pet.id}" %><br/>
-        <% if pet.status == "adoptable" %>
-        <%= link_to "Approve Application For: #{pet.name}", "/pets/#{pet.id}/applications/approve_status", method: :get %>
+        <% @petapps.each do |petapp| %>
+        <% if petapp.approved && petapp.application_id == @application.id%>
+          <%= link_to "Revoke Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/revoke_status", method: :patch %>
         <% else %>
-        <%= link_to "Revoke Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/revoke_status", method: :get %>
+          <%= link_to "Approve Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/approve_status", method: :patch %>
         <% end %>
+          <% end %>
       </section>
       <% end %>
     </section>
