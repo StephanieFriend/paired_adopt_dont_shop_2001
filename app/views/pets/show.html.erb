@@ -11,20 +11,21 @@
   <section>
   <br/><br/>
 	<h1 id="dominant-header">Info</h1>
-	<h4><%= @pet.name %></h4>
+	<h4 id = "pet-show"><%= @pet.name %></h4>
   <% if @pet.status == "pending" %>
-  <% "On hold for #{@applicants_name}" %>
+  <%= "On hold for #{@application_name}" %>
   <% else %>
-  <h4>Adoption Status: <%= @pet.status %></h4><br/>
+  <h4 id = "pet-show"><%= @pet.status %></h4>
   <% end %>
+  <br/>
 	<%= image_tag @pet.image, :class => "image" %>
-	<h4>Description:</h4>
+	<h4 id = "pet-show">Description:</h4>
 	<%= @pet.description  %><br/>
-	<h4>Approximate Age:</h4>
+	<h4 id = "pet-show">Approximate Age:</h4>
 	<%= @pet.age %><br/>
-	<h4>Sex:</h4>
+	<h4 id = "pet-show">Sex:</h4>
 	<%= @pet.sex %><br/>
-	<h4>Shelter:</h4>
+	<h4 id = "pet-show">Shelter:</h4>
 	<%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %><br/>
   </section>
 
