@@ -22,4 +22,12 @@ class Shelter < ApplicationRecord
     end.sum
     (rating_total / review_count.to_f).round(1)
   end
+
+  def open_apps
+    pets.each do |pet|
+      pet.pet_applications.each do |petapps|
+        petapps.application
+      end
+    end.count
+  end
 end
