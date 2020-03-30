@@ -1,7 +1,7 @@
 <div class="list-page">
 <h1><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
 
-<h2><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" %></h2>
+<h2><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" %><span>(<%= @shelter.pet_count %>)</span></h2>
 
 <h3>Address: <%= @shelter.address %></h3>
 
@@ -17,7 +17,8 @@
   <%= link_to 'Add New Review', "/shelters/#{@shelter.id}/reviews" %>
 </form>
 <br/><br/>
-<h1>Reviews</h1>
+<h1>Reviews<span>(<%= @shelter.review_count %>)</span></h1>
+  <h3>Review Average: <%= @shelter.review_average %></h3>
 <div class="form-group">
 <%@reviews.each do |review| %>
     <p>
