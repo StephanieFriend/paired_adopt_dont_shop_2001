@@ -10,14 +10,14 @@
 
   <section>
   <br/><br/>
-	<h1 id="dominant-header">Info</h1>
-	<h4 id = "pet-show"><%= @pet.name %></h4>
+	<h1 id="dominant-header"> Pet Info</h1><br/>
+	<h4 id = "pet-show"><%= @pet.name %></h4><br/>
   <% if @pet.status == "pending" %>
-  <%= "On hold for #{@application_name}" %>
-  <% else %>
-  <h4 id = "pet-show"><%= @pet.status %></h4>
-  <% end %>
-  <br/>
+  <h4 id = "pet-show">On Hold For:</h4>
+  <%= "#{@application_name}" %>
+  <% end %><br/><br/>
+  <h4 id = "pet-show">Adoption Status:</h4>
+  <%= @pet.status %><br/><br/>
 	<%= image_tag @pet.image, :class => "image" %>
 	<h4 id = "pet-show">Description:</h4>
 	<%= @pet.description  %><br/>
