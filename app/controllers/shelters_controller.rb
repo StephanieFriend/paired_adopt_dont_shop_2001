@@ -23,16 +23,14 @@ class SheltersController < ApplicationController
   def destroy
     shelter = get_shelter_info
     shelter.pets.each do |pet|
-      pet.pet_applications.each do |petapp|
-        if !petapp.approved
-          dynamic_destroy(Shelter, "/shelters")
-        else
+      pet.pet_applications.find_all do |petapp|
+        if petapp.approved
           flash[:notice] = "Cannot Delete Shelter. Pets With Pending Applications."
-          redirect_to "/shelters/#{shelter.id}"
+          redirect_to "/shelters/#{shelter.id}" and return
         end
       end
     end
-
+    dynamic_destroy(Shelter, "/shelters")
   end
 
   def show
