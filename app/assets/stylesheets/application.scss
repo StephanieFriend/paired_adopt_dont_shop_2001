@@ -16,12 +16,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.application-page{
-  padding-left:50px;
-  text-align:center;
 
+.footer1 {
+
+    position: fixed;
+    clear: both;
+    bottom: 0;
+    width: 100%;
 
 }
+
+
+
 .container1 {
    max-width: 100px;
    border-style: solid;
