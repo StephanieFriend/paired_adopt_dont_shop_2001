@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "shelter delete process", type: :feature do
+RSpec.describe 'As a visitor' do
   before(:each) do
     @application_1 = Application.create( name: "Mary Margret",
                                          address: "123 Charming Ln.",
@@ -13,20 +13,16 @@ RSpec.describe "shelter delete process", type: :feature do
     PetApplication.create({pet_id: @pet_1.id, application_id: @application_1.id})
   end
 
-  it "can complete deletion with DELETE and redirect" do
+  it 'I cannot delete a shelter if a pet has an approved application' do
 
     visit "/applications/#{@application_1.id}"
 
-    expect(page).to have_content("Approve Application For: #{@pet_1.name}")
+    click_link "Approve Application For: #{@pet_1.name}"
 
     visit "/shelters/#{@shelter_1.id}"
 
-    click_link "Delete Shelter"
+    click_link 'Delete Shelter'
 
-    expect(current_path).to eq("/shelters")
-
-    expect(page).to_not have_content(@shelter_1.name)
-    expect(page).to_not have_content(@pet_1.name)
-
+    expect(page).to have_content("Cannot Delete Shelter. Pets With Pending Applications.")
   end
 end

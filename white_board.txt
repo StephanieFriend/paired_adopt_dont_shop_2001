@@ -19,3 +19,6 @@ Testing css tags
 use classes not ids
 name general petappinfo
 Heroku cant push something with ssh
+
+test user_will_see_a_flash_message_if_partial_creation_spec will not pass
+keep getting error that it cannot find the flash message on the screen
