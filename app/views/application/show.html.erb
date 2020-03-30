@@ -21,7 +21,7 @@
     <section>
       <h3>Pets Applied For</h3>
       <% @application.pets.each do |pet|%>
-      <section id="pet-links-<%= pet.id %>">
+      <section id="pet-links<%= pet.id %>">
         <%= link_to pet.name, "/pets/#{pet.id}" %><br/>
         <% @petapps.each do |petapp| %>
         <% if petapp.approved && petapp.application_id == @application.id%>

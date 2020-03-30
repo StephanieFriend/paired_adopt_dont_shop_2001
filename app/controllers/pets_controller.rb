@@ -15,11 +15,12 @@ class PetsController < ApplicationController
   end
 
   def show
-    @pet = Pet.find(params[:id])
-    if @pet.status == "pending"
-      @applicants_name = PetApplication.find_by(pet_id: @pet.id, approved: true).application.name
+    @pet = get_pet_info
+    if @pet.pet_applications.find_by(approved: true) != nil
+      @application_name = @pet.pet_applications.find_by(approved: true).application.name
     end
   end
+
 
   def edit
     @pet = get_pet_info
