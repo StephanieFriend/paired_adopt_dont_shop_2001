@@ -31,7 +31,9 @@
 
 	<form action='/pets/<%= @pet.id %>' method='post'>
 	  <%= link_to 'Edit', "/pets/#{@pet.id}/edit", class: 'btn btn-info'%>
+    <% if @pet.status != "pending" %>
 	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure want to delete #{@pet.name}?" }, class: 'btn btn-info'%>
+    <% end %>
 	</form>
   <div>
     <br/>
