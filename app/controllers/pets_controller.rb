@@ -14,7 +14,7 @@ class PetsController < ApplicationController
     if @pet.save
       redirect_to "/shelters/#{@shelter.id}/pets"
     else
-      flash[:incomplete] = "You must complete all fields in order to submit a new pet."
+      flash[:error] =  @pet.errors.full_messages.to_sentence
       redirect_to "/shelters/#{@shelter.id}/pets/new"
     end
   end
