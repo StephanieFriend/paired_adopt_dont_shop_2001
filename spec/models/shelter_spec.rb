@@ -24,5 +24,10 @@ RSpec.describe Shelter, type: :model do
 
       expect(@shelter_1.review_average).to eq(3.5)
     end
+
+    it "can return application count for individual shelter" do
+
+      expect(@shelter_1.open_apps).to eq(2)
+    end
   end
 end
