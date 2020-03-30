@@ -12,3 +12,6 @@ Create a test for no image in user_can_see_reviews_via_shelter_page
 
 
 getting nil class on owner
+
+test user_will_see_a_flash_message_if_partial_creation_spec will not pass
+keep getting error that it cannot find the flash message on the screen
