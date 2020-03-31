@@ -7,14 +7,13 @@
         <%= link_to 'Favorite This Pet', "/pets/#{@pet.id}/favorite", data: { confirm: "#{@pet.name} will be added to your favorites?" }, class: 'btn btn-success'%>
       <% end %>
     </form>
-
   <section>
   <br/><br/>
 	<h1 id="dominant-header"> Pet Info</h1><br/>
-	<h4 id = "pet-show"><%= @pet.name %></h4><br/>
+	<h4 id = "pet-show"><%= link_to @pet.name, "/pets/#{@pet.id}" %></h4><br/>
   <% if @pet.status == "pending" %>
   <h4 id = "pet-show">On Hold For:</h4>
-  <%= "#{@application_name}" %>
+  <%=  link_to "#{@application_name.name}", "/applications/#{@application_name.id}" %>
   <% end %><br/><br/>
   <h4 id = "pet-show">Adoption Status:</h4>
   <%= @pet.status %><br/><br/>

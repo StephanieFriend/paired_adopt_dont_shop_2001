@@ -18,27 +18,22 @@
 
 
 .footer1 {
-
     position: fixed;
     clear: both;
     bottom: 0;
     width: 100%;
-
 }
 
 
 
 .container1 {
-   max-width: 100px;
-   border-style: solid;
-   padding: 10px;
+   
 }
+
 p#app-info{
   font-size: 15px;
-
-
-
 }
+
 h4#h4header{
   font-size: 20px;
 }
@@ -56,6 +51,7 @@ h4#pet-show{
   background: black;
   color: white;
 }
+
 .flash-message {
   color: green;
   font-size: 25px;
@@ -134,7 +130,6 @@ div.no-apps {
   display: inline-block;
   float: none;
   vertical-align: top;
-
 
 }
 .navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
