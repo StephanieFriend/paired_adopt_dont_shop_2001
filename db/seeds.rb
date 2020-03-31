@@ -2,32 +2,47 @@ Shelter.destroy_all
 Pet.destroy_all
 Application.destroy_all
 
-@shelter_1 = Shelter.create(       name:     "Pet Palace",
-                      address:  "12483 Jefferson Drive",
-                      city:     "Denver",
-                      state:    "CO",
-                      zip:      "80205")
+@shelter_1 = Shelter.create(name:     "Pet Palace",
+                            address:  "12483 Jefferson Drive",
+                            city:     "Denver",
+                            state:    "CO",
+                            zip:      "80205")
 
 
-@shelter_2 = Shelter.create(       name:     "Save a Pet",
-                      address:  "38372 Main",
-                      city:     "Fort Collins",
-                      state:    "CO",
-                      zip:      "80205")
+@shelter_2 = Shelter.create(name:     "Save a Pet",
+                            address:  "38372 Main",
+                            city:     "Fort Collins",
+                            state:    "CO",
+                            zip:      "80205")
 
-@shelter_3 = Shelter.create(        name:     "Pet Oasis",
-                      address:  "4563 Royal Avenue",
-                      city:     "Fort Collins",
-                      state:    "CO",
-                      zip:      "80205")
+@shelter_3 = Shelter.create(name:     "Pet Oasis",
+                            address:  "4563 Royal Avenue",
+                            city:     "Fort Collins",
+                            state:    "CO",
+                            zip:      "80205")
 
-@shelter_4 = Shelter.create(        name:     "Adopt a Pet",
-                      address:  "7864 Collins",
-                      city:     "Aurora",
-                      state:    "CO",
-                      zip:      "80205")
+@shelter_4 = Shelter.create(name:     "Adopt a Pet",
+                            address:  "7864 Collins",
+                            city:     "Aurora",
+                            state:    "CO",
+                            zip:      "80205")
+
+@pet_10 = Pet.create( image: "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2017/12/adoptable-cat-cropped.jpeg",
+                      name:  "Felix",
+                      description: "Super loveable! Just looking for a place to settle down and call home",
+                      age: "5",
+                      sex: "male",
+                      status: "adoptable",
+                      shelter_id: @shelter_3.id)
 
 
+@pet_11 = Pet.create( image: "https://wtop.com/wp-content/uploads/2019/05/small-black-dog.jpg",
+                      name:  "Echo",
+                      description: "Super friendly towards humans. Still shy around her furry friends",
+                      age: "4",
+                      sex: "female",
+                      status: "adoptable",
+                      shelter_id: @shelter_4.id)
 
 @pet_1 = Pet.create(  image: "https://i.imgur.com/wKls5bM.png",
                       name:  "Ziggy",
@@ -37,7 +52,7 @@ Application.destroy_all
                       status: "adoptable",
                       shelter_id: @shelter_1.id)
 
-@pet_2 = Pet.create(           image: "https://www.thesprucepets.com/thmb/JN3PLkiEX5HOCqQca7ZrcFkdYV0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-962608834-fd496cfed51e4d2abe61c0af864fa681.jpg",
+@pet_2 = Pet.create(  image: "https://www.thesprucepets.com/thmb/JN3PLkiEX5HOCqQca7ZrcFkdYV0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-962608834-fd496cfed51e4d2abe61c0af864fa681.jpg",
                       name:  "Shadow",
                       description: "He's aged like fine wine",
                       age: "8",
@@ -45,7 +60,7 @@ Application.destroy_all
                       status: "adoptable",
                       shelter_id: @shelter_1.id)
 
-@pet_3 = Pet.create(           image: "https://img.buzzfeed.com/buzzfeed-static/static/2018-06/25/6/asset/buzzfeed-prod-web-02/sub-buzz-30033-1529923650-1.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto&output-quality=auto&output-format=auto&downsize=360:*",
+@pet_3 = Pet.create(  image: "https://img.buzzfeed.com/buzzfeed-static/static/2018-06/25/6/asset/buzzfeed-prod-web-02/sub-buzz-30033-1529923650-1.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto&output-quality=auto&output-format=auto&downsize=360:*",
                       name:  "Spazz",
                       description: "Don't let the looks fool you... She's a sweetheart",
                       age: "2",
@@ -85,6 +100,15 @@ Application.destroy_all
                       status: "adoptable",
                       shelter_id: @shelter_3.id)
 
+@pet_9 = Pet.create(  image: "https://cf-images.us-east-1.prod.boltdns.net/v1/static/5615998031001/8b371b05-61d2-4f6f-99c0-716a599251c0/ce28a4b0-6989-40fd-9574-8624b83825ce/1280x720/match/image.jpg",
+                      name:  "Tuna",
+                      description: "I know I'm a cat but I just love tuna!",
+                      age: "5",
+                      sex: "female",
+                      status: "adoptable",
+                      shelter_id: @shelter_1.id)
+
+
 
 @review_1 = @shelter_1.reviews.create( title: "These guys were ok....ish",
                                         rating: "3",
@@ -103,38 +127,31 @@ Application.destroy_all
 
 @review_2 = @shelter_4.reviews.create( title: "I will never go back",
                                       rating: "1",
-                                      content: "This shelter needs to be inspected. The cleanliness is below average. Staff are never around.",
-                                    )
+                                      content: "This shelter needs to be inspected. The cleanliness is below average. Staff are never around.",)
 
-@application_1 = Application.create(
-                      name:  "Meg",
-                      address: "3827 River Oaks Rd.",
-                      city: "Denver",
-                      state: "CO",
-                      zip: "87638",
-                      phone_number: "720-873-3467",
-                      description: "I already have several furry friends and they need friends!")
+@application_1 = Application.create(name:  "Meg",
+                                    address: "3827 River Oaks Rd.",
+                                    city: "Denver",
+                                    state: "CO",
+                                    zip: "87638",
+                                    phone_number: "720-873-3467",
+                                    description: "I already have several furry friends and they need friends!")
 
+@application_2 = Application.create(name:  "Mike",
+                                    address: "4572 Sherman Lane",
+                                    city: "Denver",
+                                    state: "CO",
+                                    zip: "87628",
+                                    phone_number: "720-563-3583",
+                                    description: "My dog loves to eat dusters! So why not let him eat dusters with a friend")
 
-
-@application_2 = Application.create(
-                      name:  "Mike",
-                      address: "4572 Sherman Lane",
-                      city: "Denver",
-                      state: "CO",
-                      zip: "87628",
-                      phone_number: "720-563-3583",
-                      description: "My dog loves to eat dusters! So why not let him eat dusters with a friend")
-
-
-@application_3 = Application.create(
-                      name:  "Cory",
-                      address: "3278 Wallabee Lane",
-                      city: "Denver",
-                      state: "CO",
-                      zip: "84834",
-                      phone_number: "303-283-3367",
-                      description: "Since owning my first cat I had to get a standing desk. I feel it's only right to assemble the ultimate cat team to conquer the almighty desk!")
+@application_3 = Application.create(name:  "Cory",
+                                    address: "3278 Wallabee Lane",
+                                    city: "Denver",
+                                    state: "CO",
+                                    zip: "84834",
+                                    phone_number: "303-283-3367",
+                                    description: "Since owning my first cat I had to get a standing desk. I feel it's only right to assemble the ultimate cat team to conquer the almighty desk!")
 
 PetApplication.create(pet_id: @pet_2.id, application_id: @application_1.id)
 PetApplication.create(pet_id: @pet_7.id, application_id: @application_2.id)
