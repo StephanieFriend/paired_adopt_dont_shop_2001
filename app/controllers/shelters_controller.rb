@@ -37,7 +37,7 @@ class SheltersController < ApplicationController
     shelter.pets.each do |pet|
       pet.pet_applications.find_all do |petapp|
         if petapp.approved
-          flash[:notice] = "Cannot Delete Shelter. Pets With Pending Applications."
+          flash[:notice] = "Cannot Delete #{shelter.id} With Pending Applications."
           redirect_to "/shelters/#{shelter.id}" and return
         end
       end
