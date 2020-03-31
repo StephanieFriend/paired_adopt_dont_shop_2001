@@ -60,9 +60,18 @@ h1#dominant-header {
 }
 
 .main-pic {
-  justify-content: center;
-  padding-left: 150px;
+  background-image: url("https://images-ra.adoptapet.com/images/Homepage-Dog-MOBILE.png");
+  background-size: cover;
+  position: absolute;
+  top: 225px;
+  left: 1px;
+  width: 100%;
+  height: 75%;
+  //padding-left: 150px;
+}
 
+body.welcome-body {
+  background-color: cornsilk;
 }
 
 .shelter-border{
@@ -85,18 +94,16 @@ h1#dominant-header {
   font-size: 16px;
 }
 
-
-
 h3#shelter {
   font-size: 50px;
   text-align: center;
 }
 
-
 p#app-info{
   font-size: 20px;
   max-width: 450px;
   margin-left: 735px;
+  margin-right: 735px;
   text-align: center;
 }
 
@@ -149,16 +156,10 @@ h4#pet-show{
 }
 
 .flash-message {
-  color: green;
+  color: red;
   font-size: 25px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -200px;
-  margin-top: -25px;
+  margin-left: 30px;
 }
-
-
 
 .delete-favorites{
   align: center
@@ -204,6 +205,20 @@ div.no-apps {
   margin-top: 100px;
 }
 
+div.form-create{
+  padding-left: 30px;
+  font-size: x-large;
+}
+
+h1.page-header {
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.content {
+  min-height: calc(100vh - 120px);
+}
+
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 .nav-item{
@@ -245,7 +260,6 @@ div.no-apps {
     color: white;
 
   }
-
 
   .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
     display: inline-block;
