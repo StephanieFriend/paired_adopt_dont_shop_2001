@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def get_application_info
     Application.find(params[:id])
-  end 
+  end
 
   def pet_params
     params[:status] = "adoptable"
@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def review_params
+    params.delete(:image) if params[:image].empty?
     params.permit(:title, :rating, :content, :image)
   end
 

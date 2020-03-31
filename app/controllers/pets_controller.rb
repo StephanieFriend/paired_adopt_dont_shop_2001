@@ -22,7 +22,7 @@ class PetsController < ApplicationController
   def show
     @pet = get_pet_info
     if @pet.pet_applications.find_by(approved: true) != nil
-     @application_name = @pet.pet_applications.find_by(approved: true).application.name
+     @application_name = @pet.pet_applications.find_by(approved: true).application
     end
   end
 
