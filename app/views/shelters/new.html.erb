@@ -1,11 +1,10 @@
-
-<header id="page-header">
-  <h1>Create Shelter</h1>
+<div class="form-create">
+<header>
+  <h1 class="page-header">Create Shelter</h1>
 </header>
 <main>
   <section>
     <%= form_tag("/shelters", method: :post) do %>
-    <form>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputPassword4">Name</label>
@@ -37,7 +36,7 @@
         </div>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-      <% end %>
-    </form>
+    <% end %>
   </section>
 </main>
+</div>
