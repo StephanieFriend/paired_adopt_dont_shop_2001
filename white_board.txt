@@ -22,3 +22,9 @@ Heroku cant push something with ssh
 
 test user_will_see_a_flash_message_if_partial_creation_spec will not pass
 keep getting error that it cannot find the flash message on the screen
+
+
+
+https://animalshelter.adcogov.org/sites/default/files/styles/large/public/Adopt.jpg?itok=WnK_pjU9
+https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2019%2F01%2Fpuppies.jpg
+https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500
