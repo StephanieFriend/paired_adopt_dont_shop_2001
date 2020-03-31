@@ -55,10 +55,13 @@
       </div>
     </nav>
 
-<div class="flash-message" class="close" data-dismiss="toast">
-    <% flash.each do |type, message| %>
-         <p><%= message %></p>
-        <% end %>
+
+<div class="success_msgs">
+  <p class="alert alert-success">
+  <% flash.each do |type, message| %>
+    <p><%= message %></p>
+    <% end %>
+
 </div>
   <%= yield %>
 
@@ -89,3 +92,7 @@
 </footer>
 
 <!-- Footer -->
+<!-- <script>
+    setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
+    setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
+</script> -->

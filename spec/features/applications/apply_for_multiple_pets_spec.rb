@@ -3,28 +3,35 @@
 # describe "As a visitor" do
 #   before :each do
 #
-  # @application_1 = Application.create(
-  #                         name:  "Test App Name",
-  #                         address: "Test App Address",
-  #                         city: "Test App City",
-  #                         state: "Test App State",
-  #                         zip: "Test App Zip",
-  #                         phone_number: "Test App Number",
-  #                         description: "Test App Description!",
-  #                         )
+#   @application_1 = Application.create(
+#                           name:  "Test App Name",
+#                           address: "Test App Address",
+#                           city: "Test App City",
+#                           state: "Test App State",
+#                           phone_number: "Test App Number",
+#                           description: "Test App Description!",
+#                           )
 #
 #     @application_1.pets << [@pet_1, @pet_2]
-#   end
+#
+#     visit "pets/#{@pet_1.id}"
+#     click_on 'Favorite This Pet'
+#     visit "/pets/#{@pet_2.id}"
+#     click_on 'Favorite This Pet'
+#     visit '/favorites'
+  # end
 #
 #   it "can approve the application for any number of pets" do
+#     click_on "Adopt Favorited Pets"
+#     expect(current_path).to eq("/applications/new")
 #
-#     visit "/applications/#{@application_1.id}"
+#     visit "/applications/new"
 #
 #     click_link "Approve Application For: #{@pet_1.name}"
 #     expect(current_path).to eq "/pets/#{@pet_1.id}"
 #
 #     expect(page).to have_content "Adoptable: pending"
-#     # expect(page).to have_content "On hold for #{@application_1.name}"
+#     expect(page).to have_content "On hold for #{@application_1.name}"
 #
 #     visit "/applications/#{@application_1.id}"
 #
@@ -32,6 +39,6 @@
 #     expect(current_path).to eq "/pets/#{@pet_2.id}"
 #
 #     expect(page).to have_content "Adoptable: pending"
-#     # expect(page).to have_content "On hold for #{@application_1.name}"
+#     expect(page).to have_content "On hold for #{@application_1.name}"
 #     end
 #   end

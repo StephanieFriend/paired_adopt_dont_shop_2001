@@ -16,6 +16,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.success_msgs{
+  text-align:center;
+  font-family: Copperplate;
+  font-size: 25px;
+  display: inline-block;
+
+}
 .nav-item{
   font-family: fantasy;
   font-size: 70px;

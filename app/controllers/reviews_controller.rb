@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
       redirect_to "/shelters/#{@shelter.id}/reviews"
     end
   end
-  
+
   def edit
     @review = get_review_info
   end
