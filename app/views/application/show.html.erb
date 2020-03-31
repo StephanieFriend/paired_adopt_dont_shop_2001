@@ -4,22 +4,21 @@
 </header>
 <main>
   <section>
-
     <div class="container1">
-    <h4 id ="h4header">Name</h4>
-     <p id ="app-info"><%= @application.name %></p><br/>
+    <h4 id ="h4header">Name</h4><br/>
+     <p id ="app-info"><%= @application.name %></p>
      </div>
      <div class="container1">
     <h4 id ="h4header">Address</h4><br/>
-      <p id ="app-info"> <%= @application.address %></p><br/>
+      <p id ="app-info"> <%= @application.address %></p>
       </div>
       <div class="container1">
     <h4 id ="h4header">City</h4><br/>
-      <p id ="app-info"><%= @application.city %></p><br/>
+      <p id ="app-info"><%= @application.city %></p>
       </div>
       <div class="container1">
     <h4 id ="h4header">State</h4><br/>
-      <p id ="app-info"><%= @application.state %></p><br/>
+      <p id ="app-info"><%= @application.state %></p>
       </div>
       <div class="container1">
     <h4 id ="h4header">Zip</h4><br/>
@@ -27,19 +26,20 @@
       </div>
       <div class="container1">
     <h4 id ="h4header">Phone Number</h4><br/>
-      <p id ="app-info"><%= @application.phone_number %></p><br/><br/>
+      <p id ="app-info"><%= @application.phone_number %></p>
       </div>
       <div class="container1">
     <h4 id ="h4header">What Makes Your Home Ideal?</h4><br/>
-      <p id ="app-info"><%= @application.description %></p><br/><br/>
+      <p id ="app-info"><%= @application.description %></p><br/>
       </div>
       </div>
-    </section>
-    <section>
+  </section>
+    <section class="app-pets-for">
       <h4 id ="h4header">Pets Applied For</h4><br/>
       <% @application.pets.each do |pet|%>
       <section id="pet-links<%= pet.id %>">
-        <%= link_to pet.name, "/pets/#{pet.id}", class: 'btn btn-primary'%><br/>
+        <p class="pet-name-link">
+          <%= link_to pet.name, "/pets/#{pet.id}", class: 'btn btn-primary'%>
         <% @petapps.each do |petapp| %>
         <% if petapp.approved && petapp.application_id == @application.id%><br/>
           <%= link_to "Revoke Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/revoke_status", method: :patch, class: 'btn btn-danger'%>
@@ -47,8 +47,9 @@
           <%= link_to "Approve Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/approve_status", method: :patch, class: 'btn btn-success'%>
         <% end %>
           <% end %>
+        </p>
       </section>
       <% end %>
     </section>
-  </main>
-  <div>
+</main>
+</div>
