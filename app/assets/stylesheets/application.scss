@@ -16,7 +16,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
+.nav-item{
+  font-family: fantasy;
+  font-size: 70px;
+}
 .footer1 {
     position: fixed;
     clear: both;
@@ -24,11 +27,64 @@
     width: 100%;
 }
 
+h1#welcome-header{
+  text-align:center;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  font-size: 80px;
+  font-family: Copperplate;
+  color: black;
+}
+h1#dominant-header {
+ text-align:center;
+ text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+ font-size: 80px;
+ font-family: fantasy;
+ color: red;
+}
 
+.pet-pic{
+  background-color: #FFF8DC;
+  background-size: cover;
+}
 
-.container1 {
+.shelter-pic {
+  background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2019%2F01%2Fpuppies.jpg");
+  background-size: cover;
+}
+
+.main-pic {
+  justify-content: center;
+  padding-left: 150px;
 
 }
+
+.shelter-border{
+  width: 25%;
+  background: black;
+  color: white;
+  justify-content: center;
+  display: inline-block;
+  opacity: 0.9;
+}
+
+.button1 {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 38px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+
+h3#shelter {
+  font-size: 50px;
+  text-align: center;
+}
+
 
 p#app-info{
   font-size: 20px;
@@ -95,11 +151,7 @@ h4#pet-show{
   margin-top: -25px;
 }
 
- h1#dominant-header {
-  text-align:center;
-  text-shadow: 8px 8px 10px blue;
-  font-size: 40px;
-}
+
 
 .delete-favorites{
   align: center
