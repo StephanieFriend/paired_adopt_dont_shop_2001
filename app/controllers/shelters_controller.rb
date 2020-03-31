@@ -9,7 +9,7 @@ class SheltersController < ApplicationController
   def create
     new_shelter = Shelter.create(shelter_params)
     if new_shelter.save
-      flash[:success] = "Your Shelter has been added!"
+      flash[:created] = "Your Shelter has been added!"
       redirect_to '/shelters'
     else
       flash[:error] = new_shelter.errors.full_messages.to_sentence
@@ -23,7 +23,13 @@ class SheltersController < ApplicationController
 
   def update
     updated_shelter = Shelter.update(params[:id], shelter_params)
-    redirect_to "/shelters/#{updated_shelter.id}"
+    if updated_shelter.save
+      flash[:updated] = "Your Shelter has been updated!"
+      redirect_to "/shelters/#{updated_shelter.id}"
+    else
+      flash[:error] = updated_shelter.errors.full_messages.to_sentence
+      redirect_to "/shelters/#{updated_shelter.id}/edit"
+    end
   end
 
   def destroy
