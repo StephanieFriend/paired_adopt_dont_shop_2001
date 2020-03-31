@@ -27,7 +27,7 @@ RSpec.describe Shelter, type: :model do
 
     it "can return application count for individual shelter" do
 
-      expect(@shelter_1.open_apps).to eq(2)
+      expect(@shelter_2.open_apps).to eq(0)
     end
   end
 end
