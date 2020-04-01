@@ -1,26 +1,35 @@
-<div class="list-page">
+<div class="list-page-pets">
 <% @pets.each do |pet| %>
 
-  <h2>
-    <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+  <h2 id="custom">
+    <%= link_to "#{pet.name}", "/pets/#{pet.id}", class: "btn btn-outline-primary", id:"pet-link"%>
   </h2>
   <img src=<%= pet.image %> class="image">
-  <h2>
+  <h2 id="custom">
     Approximate Age:
   </h2>
-  <%= pet.age %>
-  <h2>
+  <div class="erb-output">
+    <%= pet.age %>
+  </div><br/>
+  <h2 id="custom">
     Sex:
   </h2>
+  <div class="erb-output">
   <%= pet.sex %>
-  <h2>
+  </div><br/>
+  <h2 id="custom">
     Shelter:
   </h2>
-  <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %>
+  <div class="erb-output">
+  <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" ,class: "btn btn-outline-primary"%>
+  </div>
   <br/><br/>
+  <div class="links">
   <%= link_to 'Edit', "/pets/#{pet.id}/edit", class: 'btn btn-info' %>
   <% if pet.status != "pending" %>
   <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete ,  data: { confirm: "Are you sure?" }, class: 'btn btn-danger'%>
+  </div>
+  <br/><br/>
   <% end %>
 <% end %>
 </div>

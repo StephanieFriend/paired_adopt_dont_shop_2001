@@ -2,6 +2,7 @@ class SheltersController < ApplicationController
 
   def index
     @shelters = Shelter.all
+    #@shelters = shelter.sorted_ratings
   end
 
   def new; end
@@ -9,7 +10,7 @@ class SheltersController < ApplicationController
   def create
     new_shelter = Shelter.create(shelter_params)
     if new_shelter.save
-      flash[:created] = "Your Shelter has been added!"
+      flash[:created] = "#{new_shelter.name} has been added!"
       redirect_to '/shelters'
     else
       flash[:error] = new_shelter.errors.full_messages.to_sentence
@@ -24,7 +25,7 @@ class SheltersController < ApplicationController
   def update
     updated_shelter = Shelter.update(params[:id], shelter_params)
     if updated_shelter.save
-      flash[:updated] = "Your Shelter has been updated!"
+      flash[:updated] = "#{updated_shelter.name} has been updated!"
       redirect_to "/shelters/#{updated_shelter.id}"
     else
       flash[:error] = updated_shelter.errors.full_messages.to_sentence
@@ -37,7 +38,7 @@ class SheltersController < ApplicationController
     shelter.pets.each do |pet|
       pet.pet_applications.find_all do |petapp|
         if petapp.approved
-          flash[:notice] = "Cannot Delete #{shelter.id} With Pending Applications."
+          flash[:notice] = "Cannot Delete #{shelter.name} With Pending Applications."
           redirect_to "/shelters/#{shelter.id}" and return
         end
       end

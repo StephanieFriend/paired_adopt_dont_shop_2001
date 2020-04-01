@@ -1,44 +1,59 @@
-<div class="list-page">
-<h1 class="shelter-name"><%= @shelter.name %></h1>
+<div class="list-page-shelter">
+  <h1 class="shelter-name"><%= @shelter.name %></h1>
 
-<h2><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" %><span>(<%= @shelter.pet_count %>)</span></h2>
+  <h2><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" %><span>(<%= @shelter.pet_count %>)</span></h2>
   <h2>Open Pet Applications: <%= @shelter.open_apps %></h2>
-
-<h3>Address: <%= @shelter.address %></h3>
-
-<h3>City: <%= @shelter.city %></h3>
-
-<h3>State: <%= @shelter.state %></h3>
-
-<h3>Zip: <%= @shelter.zip %></h3>
-<div class="shelter-links">
-<form action='/shelters/#{@shelter.id} <%= @shelter.id %>' method='post'>
-  <%= link_to 'Edit Shelter', "/shelters/#{@shelter.id}/edit" %>
-  <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete, data: { confirm: "Are you sure you want to delete #{@shelter.name}?" } %>
-  <%= link_to 'Add New Review', "/shelters/#{@shelter.id}/reviews" %>
-</form>
-</div>
-<br/><br/>
-
-<h1>Reviews<span>(<%= @shelter.review_count %>)</span></h1>
+  <h2 id="custom">
+    Address:
+  </h2>
+  <div class="erb-output">
+    <%= @shelter.address %>
+  </div><br/>
+  <h2 id="custom">
+    City:
+  </h2>
+  <div class="erb-output">
+    <%= @shelter.city %>
+  </div><br/>
+  <h2 id="custom">
+    State:
+  </h2>
+  <div class="erb-output">
+    <%= @shelter.state %>
+  </div><br/>
+  <h2 id="custom">
+    Zip:
+  </h2>
+  <div class="erb-output">
+    <%= @shelter.zip %>
+  </div><br/>
+  <div class="shelter-links">
+    <form action='/shelters/#{@shelter.id} <%= @shelter.id %>' method='post'>
+      <%= link_to 'Edit Shelter', "/shelters/#{@shelter.id}/edit" %>
+      <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete, data: { confirm: "Are you sure you want to delete #{@shelter.name}?" } %>
+      <%= link_to 'Add New Review', "/shelters/#{@shelter.id}/reviews" %>
+    </form>
+  </div>
+  <br/><br/>
+  <h1>Reviews<span>(<%= @shelter.review_count %>)</span></h1>
   <h3>Review Average: <%= @shelter.review_average %></h3>
-<div class="form-group">
-<%@reviews.each do |review| %>
+  <div class="form-group">
+    <%@reviews.each do |review| %>
     <p>
-  <h5 class="review-title"><%= review.title %></h5>
+      <h5 class="review-title"><%= review.title %></h5>
       <h5 class="review-title">Rating:</h5>
-    <p class="review-content"><%= review.rating %></p>
-    <h5 class="review-title">Comments:</h5>
-    <p class="review-content"><%= review.content %></p>
-  <% if review.image != nil %>
-    <%= image_tag review.image, :class => "image" %><br/>
-        <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
+      <p class="review-content"><%= review.rating %></p>
+      <h5 class="review-title">Comments:</h5>
+      <p class="review-content"><%= review.content %></p>
+      <% if review.image != nil %>
+      <%= image_tag review.image, :class => "image" %><br/>
+      <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
       <%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete, data: { confirm: "Are you sure you want to delete (#{review.title}) review?" } %>
-        <% else %>
-        <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
+      <% else %>
+      <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
       <%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete, data: { confirm: "Are you sure you want to delete (#{review.title}) review?" } %>
-    <% end %>
-    <br/>
-<% end %>
-</div>
-</div>
+      <% end %>
+      <br/>
+      <% end %>
+    </div>
+  </div>
