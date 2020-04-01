@@ -23,6 +23,6 @@ RSpec.describe 'As a visitor', type: :feature do
 
     click_link 'Delete Shelter'
 
-    expect(page).to have_content("Cannot Delete Shelter. Pets With Pending Applications.")
+    expect(page).to have_content("Cannot Delete #{@shelter_1.id} With Pending Applications.")
   end
 end
