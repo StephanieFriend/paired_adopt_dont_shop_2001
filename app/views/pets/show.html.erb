@@ -10,28 +10,36 @@
   <section>
   <br/><br/>
 	<h1 id="dominant-header"> Pet Info</h1><br/>
-	<h4 id = "pet-show"><%= link_to @pet.name, "/pets/#{@pet.id}" %></h4><br/>
+	<h2 id="custom"><%= @pet.name %></h2><br/>
   <% if @pet.status == "pending" %>
-  <h4 id = "pet-show">On Hold For:</h4>
+  <h2 id="custom">On Hold For:</h2>
   <%=  link_to "#{@application_name.name}", "/applications/#{@application_name.id}" %>
   <% end %><br/><br/>
-  <h4 id = "pet-show">Adoption Status:</h4>
-  <%= @pet.status %><br/><br/>
-	<%= image_tag @pet.image, :class => "image" %>
-	<h4 id = "pet-show">Description:</h4>
-	<%= @pet.description  %><br/>
-	<h4 id = "pet-show">Approximate Age:</h4>
-	<%= @pet.age %><br/>
-	<h4 id = "pet-show">Sex:</h4>
-	<%= @pet.sex %><br/>
-	<h4 id = "pet-show">Shelter:</h4>
-	<%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %><br/>
+  <h2 id="custom">Adoption Status:</h2>
+  <div class="erb-output">
+  <%= @pet.status %>
+  </div><br/>
+	<%= image_tag @pet.image, :class => "image1" %>
+	<h2 id="custom">Description:</h2>
+  <div class="erb-output">
+	<%= @pet.description  %>
+  </div><br/>
+	<h2 id="custom">Approximate Age:</h2>
+  <div class="erb-output">
+	<%= @pet.age %>
+  </div><br/>
+	<h2 id="custom">Sex:</h2>
+  <div class="erb-output">
+	<%= @pet.sex %>
+  </div><br/>
+	<h2 id="custom">Shelter:</h2>
+	<%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}", class: 'btn btn-primary' %><br/>
   </section>
-
+<br/>
 	<form action='/pets/<%= @pet.id %>' method='post'>
 	  <%= link_to 'Edit', "/pets/#{@pet.id}/edit", class: 'btn btn-info'%>
     <% if @pet.status != "pending" %>
-	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure want to delete #{@pet.name}?" }, class: 'btn btn-info'%>
+	  <%= link_to 'Delete', "/pets/#{@pet.id}", method: :delete,  data: { confirm: "Are you sure want to delete #{@pet.name}?" }, class: 'btn btn-danger'%><br/>
     <% end %>
 	</form>
   <div>
