@@ -1,7 +1,7 @@
 <div class="list-page-shelter">
   <h1 class="shelter-name"><%= @shelter.name %></h1>
 
-  <h2><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" %><span>(<%= @shelter.pet_count %>)</span></h2>
+  <h2><%= link_to "Pets at This Shelter", "/shelters/#{@shelter.id}/pets" , class:"btn btn-info" %><span>(<%= @shelter.pet_count %>)</span></h2>
   <h2>Open Pet Applications: <%= @shelter.open_apps %></h2>
   <h2 id="custom">
     Address:
@@ -29,9 +29,9 @@
   </div><br/>
   <div class="shelter-links">
     <form action='/shelters/#{@shelter.id} <%= @shelter.id %>' method='post'>
-      <%= link_to 'Edit Shelter', "/shelters/#{@shelter.id}/edit" %>
-      <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: :delete, data: { confirm: "Are you sure you want to delete #{@shelter.name}?" } %>
-      <%= link_to 'Add New Review', "/shelters/#{@shelter.id}/reviews" %>
+      <%= link_to 'Edit Shelter', "/shelters/#{@shelter.id}/edit", class:"btn btn-info" %>
+      <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete #{@shelter.name}?" } %>
+      <%= link_to 'Add New Review', "/shelters/#{@shelter.id}/reviews", class:"btn btn-primary"  %>
     </form>
   </div>
   <br/><br/>
@@ -47,11 +47,11 @@
       <p class="review-content"><%= review.content %></p>
       <% if review.image != nil %>
       <%= image_tag review.image, :class => "image" %><br/>
-      <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
-      <%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete, data: { confirm: "Are you sure you want to delete (#{review.title}) review?" } %>
+      <%= link_to 'Edit Review', "/reviews/#{review.id}/edit", class:"btn btn-info"%>
+      <%= link_to 'Delete Review', "/reviews/#{review.id}", class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete (#{review.title}) review?"} %>
       <% else %>
-      <%= link_to 'Edit Review', "/reviews/#{review.id}/edit" %>
-      <%= link_to 'Delete Review', "/reviews/#{review.id}", method: :delete, data: { confirm: "Are you sure you want to delete (#{review.title}) review?" } %>
+      <%= link_to 'Edit Review', "/reviews/#{review.id}/edit", class:"btn btn-info" %>
+      <%= link_to 'Delete Review', "/reviews/#{review.id}", class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete (#{review.title}) review?"} %>
       <% end %>
       <br/>
       <% end %>
