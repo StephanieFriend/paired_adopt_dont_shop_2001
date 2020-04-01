@@ -54,14 +54,6 @@ Application.destroy_all
                       shelter_id: @shelter_1.id)
 
 
-@pet_12 = Pet.create( image: "https://imgur.com/kWAXRuL",
-                      name:  "Albus",
-                      description: "The ultimate couch potatoe." "Did someone say potatoe!",
-                      age: "1",
-                      sex: "male",
-                      status: "adoptable",
-                      shelter_id: @shelter_1.id)
-
 @pet_2 = Pet.create(  image: "https://www.thesprucepets.com/thmb/JN3PLkiEX5HOCqQca7ZrcFkdYV0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-962608834-fd496cfed51e4d2abe61c0af864fa681.jpg",
                       name:  "Shadow",
                       description: "He's aged like fine wine",
