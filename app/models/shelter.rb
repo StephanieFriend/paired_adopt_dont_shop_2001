@@ -17,7 +17,7 @@ class Shelter < ApplicationRecord
   end
 
   # def review_average
-  #  reviews.average(:rating).to_f
+  #  # reviews.average(:rating).to_f
   # end
 
   def review_average

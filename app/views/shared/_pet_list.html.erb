@@ -1,6 +1,6 @@
-
-<% @pets.each do |pet| %>
 <div class="list-page">
+<% @pets.each do |pet| %>
+
   <h2>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
   </h2>
@@ -22,5 +22,10 @@
   <% if pet.status != "pending" %>
   <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete ,  data: { confirm: "Are you sure?" }, class: 'btn btn-danger'%>
   <% end %>
-  </div>
 <% end %>
+</div>
+
+
+
+ <%# make text readable size
+ white font
