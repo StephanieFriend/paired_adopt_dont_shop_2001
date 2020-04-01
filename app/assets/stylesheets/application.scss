@@ -92,9 +92,17 @@ h1.page-header {
   top: 59.5%;
 }
 
+.favorites{
+  color: white;
+}
+
 // button styling
 
 .btn.btn-dark{
+  font-size: 10px;
+}
+
+.btn.btn-primary{
   font-size: 10px;
 }
 
@@ -110,12 +118,17 @@ h1.page-header {
   font-size: 10px;
 }
 
+.btn.btn-success{
+  font-size: 10px;
+}
+
+
 .btn.btn-outline-primary{
   font-size: 10px;
 }
 
 .btn.btn-outline-primary#pet-link{
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .button1 {
@@ -196,6 +209,7 @@ p.review-content {
   margin: auto;
   padding: 20px;
   text-align: center;
+  color: white;
 }
 
 .list-page-shelter {
@@ -207,11 +221,16 @@ p.review-content {
   color: white;
 
 }
-
+.nfp {
+  font-size: 18px;
+  color: white;
+}
 .applications-header {
   float: right;
   word-spacing: 10px;
   padding-right: 20px;
+  text-decoration: underline;
+
 }
 
 h1.pet-app {

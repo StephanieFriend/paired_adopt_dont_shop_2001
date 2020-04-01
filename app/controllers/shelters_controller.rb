@@ -2,7 +2,6 @@ class SheltersController < ApplicationController
 
   def index
     @shelters = Shelter.all
-    #@shelters = shelter.sorted_ratings
   end
 
   def new; end

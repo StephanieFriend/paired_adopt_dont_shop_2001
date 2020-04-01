@@ -16,6 +16,10 @@ class Shelter < ApplicationRecord
     reviews.count
   end
 
+  # def review_average
+  #  # reviews.average(:rating).to_f
+  # end
+
   def review_average
     rating_total = reviews.map do |review|
       review.rating.to_i
@@ -27,6 +31,3 @@ class Shelter < ApplicationRecord
     pets.joins(:applications).count
   end
 end
-
-#on shelter's index page ratings show up
-  #logic on model to sort and display top three that I call on the index views page

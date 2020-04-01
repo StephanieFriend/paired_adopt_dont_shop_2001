@@ -11,15 +11,6 @@ require 'rails_helper'
       expect(current_path).to eq("/pets/#{@pet_1.id}")
     end
 
-    it "pet show page takes me to that pets show page" do
-
-      visit "/pets/#{@pet_1.id}"
-
-      click_link("#{@pet_1.name}")
-
-      expect(current_path).to eq("/pets/#{@pet_1.id}")
-    end
-
     it "shelter pets index takes me to that pets show page" do
 
       visit "/shelters/#{@shelter_1.id}/pets"
