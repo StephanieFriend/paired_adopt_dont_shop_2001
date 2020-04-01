@@ -27,6 +27,7 @@ Application.destroy_all
                             state:    "CO",
                             zip:      "80205")
 
+
 @pet_10 = Pet.create( image: "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2017/12/adoptable-cat-cropped.jpeg",
                       name:  "Felix",
                       description: "Super loveable! Just looking for a place to settle down and call home",
@@ -47,6 +48,15 @@ Application.destroy_all
 @pet_1 = Pet.create(  image: "https://i.imgur.com/wKls5bM.png",
                       name:  "Ziggy",
                       description: "He's a super chill dude",
+                      age: "1",
+                      sex: "male",
+                      status: "adoptable",
+                      shelter_id: @shelter_1.id)
+
+
+@pet_12 = Pet.create( image: "https://imgur.com/kWAXRuL",
+                      name:  "Albus",
+                      description: "The ultimate couch potatoe." "Did someone say potatoe!",
                       age: "1",
                       sex: "male",
                       status: "adoptable",

@@ -11,7 +11,7 @@
 #                           phone_number: "Test App Number",
 #                           description: "Test App Description!",
 #                           )
-#      @application_1 = Application.create(
+#     @application_1 = Application.create(
 #                           name:  "Test App Name2",
 #                           address: "Test App Address2",
 #                           city: "Test App City2",
@@ -32,9 +32,10 @@
 #       visit "/applications/#{@application_1.id}"
 #
 #       within("#pet-links#{@pet_1.id}") do
-#         expect(page).to have_link("Approve application for: #{@pet_1.name}")
-#         click_link "Approve Application For: #{@pet_1.name}"
-#       end
+#       expect(page).to have_link("Approve application for: #{@pet_1.name}")
+#
+#       click_link "Approve Application For: #{@pet_1.name}"
+#     end
 #
 #       click_link "Approve Application For: #{@pet_1.name}"
 #       expect(current_path).to eq "/pets/#{@pet_1.id}"

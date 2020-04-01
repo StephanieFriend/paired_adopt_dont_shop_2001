@@ -55,16 +55,19 @@
       </div>
     </nav>
 <div class="content">
-<div class="flash-message" class="close" data-dismiss="toast">
-    <% flash.each do |type, message| %>
-         <p><%= message %></p>
-        <% end %>
+<div class="success_msgs">
+  <p class="alert alert-light">
+  <% flash.each do |type, message| %>
+    <p><%= message %></p>
+    <% end %>
 </div>
   <%= yield %>
-
 </div>
+<div class="footer1">
 <footer class="page-footer font-small blue darken-3">
   <!-- Footer Elements -->
+
+
     <!-- Grid row-->
     <div class="row">
 
@@ -78,9 +81,13 @@
         </div>
       </div>
     </div>
+
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="https://adopt-dont-shop-paired-tt-sf.herokuapp.com/"> AdoptDontShop.com</a>
   </div>
 </footer>
+</div>
 <!-- Footer -->
-</body>
+<script>
+    setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
+</script>
