@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor' do
+RSpec.describe 'As a visitor', type: :feature do
   it 'All shelter reviews are deleted when I delete a shelter' do
 
     visit "/shelters/#{@shelter_2.id}"

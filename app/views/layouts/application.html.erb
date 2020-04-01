@@ -51,22 +51,24 @@
               Favorites
             </a>
           </li>
-        </ul>
-      </div>
+
+          <div class="animated hinge delay-2s slower ">
+          <% flash.each do |type, message| %>
+          <div class="alert alert-light" role="alert">
+            <p><%= message %></p>
+            <% end %>
+          </div>
+        </div>
+
     </nav>
 <div class="content">
-<div class="flash-message" class="close" data-dismiss="toast">
-    <% flash.each do |type, message| %>
-         <p><%= message %></p>
-        <% end %>
-</div>
+
   <%= yield %>
-
-
 </div>
-<footer class="page-footer font-small blue darken-3">
+
+<footer class="page-footer font-small black darken-3">
   <!-- Footer Elements -->
-  <div class="container">
+
 
     <!-- Grid row-->
     <div class="row">
@@ -74,17 +76,26 @@
       <!-- Grid column -->
       <div class="col-md-12 py-5">
         <div class="mb-5 flex-center">
-
-          <a href="https://github.com/tylertomlinson"><i style="margin-right: 0.5em; color: #EEEEEE;" class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i> Tyler</a>
-          <a href="https://github.com/StephanieFriend/paired_adopt_dont_shop_2001"><i style="margin-right: 0.5em; color: #EEEEEE;" class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i> Project Repo</a>
-					<a href="https://github.com/StephanieFriend"><i style="margin-right: 0.5em; color: #EEEEEE;" class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"></i> Stephanie</a>
+          <div class="link">
+          <a href="https://github.com/tylertomlinson">Tyler&nbsp<i style=" color: #EEEEEE;" class="fab fa-github fa-lg white-text mr-md-6 mr-5 fa-4x"></i> </a>
+        </div>
+          <div class="link">
+          <a href="https://github.com/StephanieFriend/paired_adopt_dont_shop_2001">Project Repo&nbsp<i style="color: #EEEEEE;" class="fab fa-github fa-lg white-text mr-md-6 mr-5 fa-4x"></i></a>
+        </div>
+        <div class="link">
+					<a href="https://github.com/StephanieFriend"> Stephanie&nbsp<i style="color: #EEEEEE;" class="fab fa-github fa-lg white-text mr-md-6 mr-5 fa-4x"></i></a>
         </div>
       </div>
+
+      </div>
     </div>
-  </div>
+
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="https://adopt-dont-shop-paired-tt-sf.herokuapp.com/"> AdoptDontShop.com</a>
   </div>
 </footer>
+
 <!-- Footer -->
-</body>
+<script>
+    setTimeout("$('.alert').fadeOut('slow')", 20000)
+</script>

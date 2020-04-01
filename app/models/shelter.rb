@@ -16,6 +16,10 @@ class Shelter < ApplicationRecord
     reviews.count
   end
 
+  # def review_average
+  #  # reviews.average(:rating).to_f
+  # end
+
   def review_average
     rating_total = reviews.map do |review|
       review.rating.to_i
@@ -24,10 +28,6 @@ class Shelter < ApplicationRecord
   end
 
   def open_apps
-    pets.each do |pet|
-      pet.pet_applications.each do |petapps|
-        petapps.application
-      end
-    end.count
+    pets.joins(:applications).count
   end
 end

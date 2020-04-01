@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor' do
+RSpec.describe 'As a visitor', type: :feature do
   before(:each) do
     @application_1 = Application.create( name: "Mary Margret",
                                          address: "123 Charming Ln.",
@@ -23,6 +23,6 @@ RSpec.describe 'As a visitor' do
 
     click_link 'Delete Shelter'
 
-    expect(page).to have_content("Cannot Delete Shelter. Pets With Pending Applications.")
+    expect(page).to have_content("Cannot Delete #{@shelter_1.id} With Pending Applications.")
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor' do
+RSpec.describe 'As a visitor', type: :feature do
   describe 'When I update or create a new shelter' do
     it 'If I submit without all the info to create I get a flash message stating what info I am missing' do
 
@@ -50,7 +50,6 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content("Your Shelter has been added!")
     end
 
-    # EDIT
     it 'If I submit partial info to edit a shelter I get a flash message stating what info is missing' do
 
       visit "/shelters/#{@shelter_1.id}"

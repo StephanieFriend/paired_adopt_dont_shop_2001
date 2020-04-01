@@ -16,7 +16,6 @@ RSpec.describe "reviews edit process" do
 
     expect(page).to have_selector("form")
     expect(page).to have_field("Title", with: @review_1.title)
-    expect(page).to have_field('Rating')
     expect(page).to have_field("Content", with: @review_1.content)
   end
 
