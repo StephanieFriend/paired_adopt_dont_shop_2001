@@ -17,17 +17,14 @@ class Shelter < ApplicationRecord
   end
 
   def review_average
-    review_ratings.reduce(:+) / review_ratings.size.to_f
+    rating_total = reviews.map do |review|
+      review.rating.to_i
+    end.sum
+    (rating_total / review_count.to_f).round(1)
   end
 
   def open_apps
     pets.joins(:applications).count
-  end
-
-  private
-
-  def review_ratings
-    reviews.map { |review| review.rating.to_i }
   end
 end
 
