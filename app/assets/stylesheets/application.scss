@@ -17,21 +17,15 @@
 @import "bootstrap";
 
 .success_msgs{
-  text-align:center;
+  text-align: center;
   font-family: Copperplate;
   font-size: 25px;
   display: inline-block;
-
 }
+
 .nav-item{
   font-family: fantasy;
   font-size: 70px;
-}
-.footer1 {
-    position: fixed;
-    clear: both;
-    bottom: 0;
-    width: 100%;
 }
 
 h1#welcome-header{
@@ -215,9 +209,6 @@ h1.page-header {
   font-size: 35px;
 }
 
-.content {
-  min-height: calc(100vh - 120px);
-}
 
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
