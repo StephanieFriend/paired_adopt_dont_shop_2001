@@ -16,6 +16,10 @@ class Shelter < ApplicationRecord
     reviews.count
   end
 
+  # def review_average
+  #  reviews.average(:rating).to_f
+  # end
+
   def review_average
     rating_total = reviews.map do |review|
       review.rating.to_i
