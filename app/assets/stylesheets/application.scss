@@ -58,15 +58,20 @@ h1.page-header {
 
 // PICTURES
 
-.image:hover {
+.image1:hover {
   transform: scale(2.0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.image {
+
+.image1 {
   max-height: 300px;
   max-width: 300px;
 }
 
+.image {
+  max-height: 300px;
+  max-width: 300px;
+}
 .pet-pic{
   background-color: #FFF8DC;
   background-size: cover;
@@ -199,6 +204,7 @@ p.review-content {
   margin: auto;
   padding: 20px;
   text-align: center;
+  color: white;
 
 }
 
@@ -231,10 +237,10 @@ div.no-apps {
 }
 
 div.form-create{
-  padding-left: 30px;
-  font-size: x-large;
+  padding-left: 100px;
+  font-size: 18px;
+  color: orange;
 }
-
 
 .content {
   min-height: calc(100vh - 120px);

@@ -9,9 +9,9 @@ RSpec.describe Shelter, type: :model do
 
   describe "instance methods" do
     it "can return pet count for individual shelter" do
-
-    expect(@shelter_1.pet_count).to eq(2)
-    expect(@shelter_2.pet_count).to eq(2)
+      
+      expect(@shelter_1.pet_count).to eq(2)
+      expect(@shelter_2.pet_count).to eq(2)
     end
 
     it "can return review count for individual shelter" do

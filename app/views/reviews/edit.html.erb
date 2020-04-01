@@ -1,11 +1,13 @@
-<header id="page-header">
-  <h1>Edit Review Info</h1>
+
+<div class="form-create">
+<header>
+	<h1 class="page-header">Edit Review Info</h1>
 </header>
 <main>
   <section>
     <%= form_tag "/reviews/#{@review.id}", method: :patch do %>
     <%= label_tag :title %>
-    <%= text_field_tag :title, @review.title %> <br/>
+    <%= text_field_tag :title, @review.title %> <br/><br/>
     <div class="form-row">
       <div class="form-group col-md-7">
         <label for="inputRating">Rating</label><br/>
@@ -22,10 +24,11 @@
       </div>
     </div>
     <%= label_tag :content %>
-    <%= text_field_tag :content, @review.content %> <br/>
+    <%= text_field_tag :content, @review.content %> <br/><br/>
     <%= label_tag :Image, 'Image' %>
-    <%= text_field_tag :image, @review.image %><br>
+    <%= text_field_tag :image, @review.image %><br><br/>
     <button type="submit" class="btn btn-primary">Submit</button>
     <% end %>
   </section>
 </main>
+</div>
