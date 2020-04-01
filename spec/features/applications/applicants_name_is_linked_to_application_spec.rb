@@ -26,11 +26,4 @@ RSpec.describe 'Applicants name link', type: :feature do
 
       expect(page).to have_link("#{@application_1.name}", href: "/applications/#{@application_1.id}")
     end
-
-    it 'on a application show page it is a link to their application show page' do
-
-      visit "/applications/#{@application_1.id}"
-
-      expect(page).to have_link("#{@application_1.name}", href: "/applications/#{@application_1.id}")
-    end
   end

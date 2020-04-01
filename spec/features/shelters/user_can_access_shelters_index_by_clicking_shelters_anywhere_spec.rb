@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "all pages" do
+RSpec.describe "all pages", type: :feature do
   it "have a shelters link that redirects to shelter index" do
 
     visit "/"

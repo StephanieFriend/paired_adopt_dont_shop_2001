@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor' do
+RSpec.describe 'As a visitor', type: :feature do
   before(:each) do
     @application_1 = Application.create( name: "Mary Margret",
                                          address: "123 Charming Ln.",

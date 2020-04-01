@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor' do
+RSpec.describe 'As a visitor', type: :feature do
   describe 'If a shelter does not have any pets with a pending status I can delete that shelter' do
     before(:each) do
       @application_2 = Application.create( name: "Dr. Hopper",
@@ -44,6 +44,19 @@ RSpec.describe 'As a visitor' do
       expect(page).to_not have_content(@pet_1.name)
       expect(page).to_not have_content(@pet_2.name)
       expect(page).to have_content(@pet_3.name)
+    end
+    it 'I cannot delete a shelter if a pet has pending status' do
+
+      visit "/applications/#{@application_2.id}"
+
+      click_link "Approve Application For: #{@pet_1.name}"
+
+      visit "/shelters/#{@shelter_1.id}"
+
+      click_link 'Delete Shelter'
+
+      expect(current_path).to eq("/shelters/#{@shelter_1.id}")
+      expect(page).to have_content("Cannot Delete Shelter. Pets With Pending Applications.")
     end
   end
 end
