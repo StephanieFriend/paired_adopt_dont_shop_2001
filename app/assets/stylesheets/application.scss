@@ -16,12 +16,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.success_msgs{
+.animated
+
+
+.alert {
   text-align: center;
   font-family: Copperplate;
   font-size: 25px;
   display: inline-block;
   color: red;
+  font-style: bold;
   margin-left: 30px;
 }
 
@@ -164,8 +168,8 @@ h4#pet-show{
 }
 
 .image {
-  max-height: 200px;
-  max-width: 200px;
+  max-height: 300px;
+  max-width: 300px;
 }
 
 .list-page {border: 2px solid black;

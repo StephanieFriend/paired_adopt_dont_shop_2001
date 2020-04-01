@@ -51,16 +51,18 @@
               Favorites
             </a>
           </li>
-        </ul>
-      </div>
+
+          <div class="animated hinge delay-4s slower ">
+          <% flash.each do |type, message| %>
+          <div class="alert alert-light" role="alert">
+            <p><%= message %></p>
+            <% end %>
+          </div>
+        </div>
+
     </nav>
 <div class="content">
-<div class="success_msgs">
-  <p class="alert alert-light">
-  <% flash.each do |type, message| %>
-    <p><%= message %></p>
-    <% end %>
-</div>
+
   <%= yield %>
 </div>
 <div class="footer1">
@@ -89,5 +91,5 @@
 </div>
 <!-- Footer -->
 <script>
-    setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
+    setTimeout("$('.alert').fadeOut('slow')", 20000)
 </script>
