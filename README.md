@@ -10,9 +10,8 @@
 </p>
 
 <p align="center">
- https://adopt-dont-shop-paired-tt-sf.herokuapp.com
- 
-   </p>
+  <a href="https://adopt-dont-shop-paired-tt-sf.herokuapp.com">App Hosted on Heroku</a>
+ </p>
 
 
 ### Installation
