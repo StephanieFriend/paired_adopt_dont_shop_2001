@@ -28,8 +28,20 @@
   <%= link_to 'Edit', "/pets/#{pet.id}/edit", class: 'btn btn-info' %>
   <% if pet.status != "pending" %>
   <%= link_to 'Delete', "/pets/#{pet.id}", method: :delete ,  data: { confirm: "Are you sure?" }, class: 'btn btn-danger'%>
-  </div>
+      <% end %>
+    <form action='/pets/<%= pet.id %>/favorites' method='post'>
+      <% if session[:favorites] != nil && session[:favorites].include?(pet.id.to_s) %>
+        <%=link_to  'Un-favorite This Pet', "/pets/#{pet.id}/favorite", data: { confirm: "Are you sure you want to remove #{pet.name} from you favorites?"}, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'Favorite This Pet', "/pets/#{pet.id}/favorite", data: { confirm: "#{pet.name} will be added to your favorites?" }, class: 'btn btn-success'%>
+      <% end %>
+    </form>
+        </div>
   <br/><br/>
   <% end %>
-<% end %>
 </div>
+
+
+
+ <%# make text readable size
+ white font

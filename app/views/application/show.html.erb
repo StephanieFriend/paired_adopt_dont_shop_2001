@@ -39,16 +39,16 @@
       <section id="pet-links<%= pet.id %>">
         <p class="pet-name-link">
           <%= link_to pet.name, "/pets/#{pet.id}", class: 'btn btn-primary'%>
+          <% end %>
         <% @petapps.each do |petapp| %>
         <% if petapp.approved && petapp.application_id == @application.id%><br/>
-          <%= link_to "Revoke Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/revoke_status", method: :patch, class: 'btn btn-danger'%>
+          <%= link_to "Revoke Application For: #{petapp.pet.name}", "/pets/#{petapp.pet.id}/applications/#{@application.id}/revoke_status", method: :patch, class: 'btn btn-danger'%>
         <% else %><br/>
-          <%= link_to "Approve Application For: #{pet.name}", "/pets/#{pet.id}/applications/#{@application.id}/approve_status", method: :patch, class: 'btn btn-success'%>
+          <%= link_to "Approve Application For: #{petapp.pet.name}", "/pets/#{petapp.pet.id}/applications/#{@application.id}/approve_status", method: :patch, class: 'btn btn-success'%>
         <% end %>
           <% end %>
         </p>
       </section>
-      <% end %>
     </section>
 </main>
 </div>
