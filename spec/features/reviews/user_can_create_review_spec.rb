@@ -10,7 +10,7 @@ RSpec.describe 'As a Visitor' do
     expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews")
 
     fill_in :title, with: "Very Happy!"
-    select '5', from: :rating
+    select '5', :from => :rating
     fill_in :content, with: "Great place to adopt a puppy! (Not great on kitties though.)"
 
     click_button 'Submit'
