@@ -1,5 +1,6 @@
-class SheltersController < ApplicationController
+# frozen_string_literal: true
 
+class SheltersController < ApplicationController
   def index
     @shelters = Shelter.all
   end
@@ -9,7 +10,7 @@ class SheltersController < ApplicationController
   def create
     new_shelter = Shelter.create(shelter_params)
     if new_shelter.save
-      flash[:created] = "Your Shelter has been added!"
+      flash[:created] = 'Your Shelter has been added!'
       redirect_to '/shelters'
     else
       flash[:error] = new_shelter.errors.full_messages.to_sentence
@@ -18,13 +19,13 @@ class SheltersController < ApplicationController
   end
 
   def edit
-    @shelter = get_shelter_info
+    @shelter = shelter_info
   end
 
   def update
     updated_shelter = Shelter.update(params[:id], shelter_params)
     if updated_shelter.save
-      flash[:updated] = "Your Shelter has been updated!"
+      flash[:updated] = 'Your Shelter has been updated!'
       redirect_to "/shelters/#{updated_shelter.id}"
     else
       flash[:error] = updated_shelter.errors.full_messages.to_sentence
@@ -33,16 +34,16 @@ class SheltersController < ApplicationController
   end
 
   def destroy
-    shelter = get_shelter_info
+    shelter = shelter_info
     shelter.pets.each do |pet|
       pet.pet_applications.find_all do |petapp|
         if petapp.approved
-          flash[:notice] = "Cannot Delete A Shelter With Pending Applications."
+          flash[:notice] = 'Cannot Delete A Shelter With Pending Applications.'
           redirect_to "/shelters/#{shelter.id}" and return
         end
       end
     end
-    dynamic_destroy(Shelter, "/shelters")
+    dynamic_destroy(Shelter, '/shelters')
   end
 
   def show
@@ -51,7 +52,7 @@ class SheltersController < ApplicationController
   end
 
   def pets
-    @shelter = get_shelter_info
+    @shelter = shelter_info
     @pets = @shelter.pets.all
   end
 end

@@ -1,31 +1,33 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
- private
+  private
 
   def dynamic_destroy(object, route)
-    (object).destroy(params[:id])
+    object.destroy(params[:id])
     redirect_to route
   end
 
-  def get_shelter_info
+  def shelter_info
     Shelter.find(params[:id])
   end
 
-  def get_pet_info
+  def pet_info
     Pet.find(params[:id])
   end
 
-  def get_review_info
+  def review_info
     Review.find(params[:id])
   end
 
-  def get_application_info
+  def application_info
     Application.find(params[:id])
   end
 
   def pet_params
-    params[:status] = "adoptable"
+    params[:status] = 'adoptable'
     params.permit(:image, :name, :description, :age, :sex, :status)
   end
 

@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 SimpleCov.start
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -59,79 +61,78 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
-    config.include Capybara::DSL
-  Shoulda::Matchers.configure do |config|
-    config.integrate do |with|
+  # config.filter_gems_from_backtrace('gem name')
+  config.include Capybara::DSL
+
+  Shoulda::Matchers.configure do |configs|
+    configs.integrate do |with|
       with.test_framework :rspec
       with.library :rails
     end
   end
-
 
   config.before :all do
     Shelter.destroy_all
     Pet.destroy_all
     Review.destroy_all
 
+    @shelter1 = Shelter.create(name: 'Test Name',
+                               address: '123 Test Test',
+                               city: 'Denver',
+                               state: 'CO',
+                               zip: '80205')
 
-     @shelter_1 = Shelter.create(name: "Test Name",
-                                address: "123 Test Test",
-                                city: "Denver",
-                                state: "CO",
-                                zip: "80205")
+    @shelter2 = Shelter.create(name: 'Test Paradise',
+                               address: 'Test',
+                               city: 'Denver',
+                               state: 'CO',
+                               zip: '80232')
 
-     @shelter_2 = Shelter.create(name: "Test Paradise",
-                                address: "Test",
-                                city: "Denver",
-                                state: "CO",
-                                zip: "80232")
+    @pet1 = Pet.create(image: 'https://i.imgur.com/wKls5bM.png',
+                        name: 'Test name 1',
+                        description: 'Test description 1',
+                        age: 'Test age 1',
+                        sex: 'Test sex 1',
+                        status: 'Adoptable',
+                        shelter_id: @shelter1.id)
 
-     @pet_1 = Pet.create(image: "https://i.imgur.com/wKls5bM.png",
-                        name:  "Test name 1",
-                        description: "Test description 1",
-                        age: "Test age 1",
-                        sex: "Test sex 1",
-                        status: "Adoptable",
-                        shelter_id:  @shelter_1.id)
+    @pet2 = Pet.create(image: 'https://i.imgur.com/wKls5bM.png',
+                        name: 'Test name 2',
+                        description: 'Test description 2',
+                        age: 'Test age 2',
+                        sex: 'Test sex 2',
+                        status: 'Adoptable',
+                        shelter_id: @shelter1.id)
 
-     @pet_2 = Pet.create(image: "https://i.imgur.com/wKls5bM.png",
-                        name:  "Test name 2",
-                        description: "Test description 2",
-                        age: "Test age 2",
-                        sex: "Test sex 2",
-                        status: "Adoptable",
-                        shelter_id:  @shelter_1.id)
+    @pet3 = Pet.create(image: 'https://i.imgur.com/wKls5bM.png',
+                        name: 'Test name 3',
+                        description: 'Test description 3',
+                        age: 'Test age 3',
+                        sex: 'Test sex 3',
+                        status: 'Adoptable',
+                        shelter_id: @shelter2.id)
 
-     @pet_3 = Pet.create(image: "https://i.imgur.com/wKls5bM.png",
-                        name:  "Test name 3",
-                        description: "Test description 3",
-                        age: "Test age 3",
-                        sex: "Test sex 3",
-                        status: "Adoptable",
-                        shelter_id:  @shelter_2.id)
+    @pet4 = Pet.create(image: 'https://i.imgur.com/wKls5bM.png',
+                        name: 'Test name 4',
+                        description: 'Test description 1',
+                        age: 'Test age 4',
+                        sex: 'Test sex 4',
+                        status: 'Adoptable',
+                        shelter_id: @shelter2.id)
 
-     @pet_4 = Pet.create(image: "https://i.imgur.com/wKls5bM.png",
-                        name:  "Test name 4",
-                        description: "Test description 1",
-                        age: "Test age 4",
-                        sex: "Test sex 4",
-                        status: "Adoptable",
-                        shelter_id: @shelter_2.id)
+    @review1 = @shelter1.reviews.create({ title: 'This is Awesome!',
+                                          rating: '3',
+                                          content: 'Easy process and friendly staff.',
+                                          image: 'https://i.imgur.com/wKls5bM.png' })
 
-    @review_1 = @shelter_1.reviews.create({ title: "This is Awesome!",
-                                           rating: "3",
-                                           content: "Easy process and friendly staff.",
-                                           image: 'https://i.imgur.com/wKls5bM.png'})
+    @review2 = @shelter1.reviews.create({ title: 'Thank you!',
+                                          rating: '4',
+                                          content: 'Great selection and reasonable cost.',
+                                          image: 'https://lh3.googleusercontent.com/proxy/VH2o2pIhKaUrNNs8PUtOHgayKXVKlaF2lObH0Xmq06RQAu4b4T_U-ZwKqWRd8aSs4-q7WW9-P8JuFPqIvsVwqGMQrL51Q4y7s4GaXx2HZUtYKwYtxlFmwlLH4-aPDkOCMd1lK72FqL75-Viyg_F2NnLs-wypnocyYz0QrEk_f8PDHiZNVIN5WilLHZAir1RFiM617jhlogVQVln6oppZWEWUFk4e7K5CIzJiIbc8LItt6nYmIg' })
 
-    @review_2 = @shelter_1.reviews.create({ title: "Thank you!",
-                                           rating: "4",
-                                           content: "Great selection and reasonable cost.",
-                                           image: 'https://lh3.googleusercontent.com/proxy/VH2o2pIhKaUrNNs8PUtOHgayKXVKlaF2lObH0Xmq06RQAu4b4T_U-ZwKqWRd8aSs4-q7WW9-P8JuFPqIvsVwqGMQrL51Q4y7s4GaXx2HZUtYKwYtxlFmwlLH4-aPDkOCMd1lK72FqL75-Viyg_F2NnLs-wypnocyYz0QrEk_f8PDHiZNVIN5WilLHZAir1RFiM617jhlogVQVln6oppZWEWUFk4e7K5CIzJiIbc8LItt6nYmIg'})
-
-    @review_3 = @shelter_2.reviews.create({ title: "These guys were ok....ish",
-                                            rating: "2",
-                                            content: "Puppies were cool, staff not so much.",
-                                            image: 'https://i.redd.it/zz62ggz08k021.jpg'})
+    @review3 = @shelter2.reviews.create({ title: 'These guys were ok....ish',
+                                          rating: '2',
+                                          content: 'Puppies were cool, staff not so much.',
+                                          image: 'https://i.redd.it/zz62ggz08k021.jpg' })
   end
 end

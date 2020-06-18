@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class Application < ApplicationRecord
-  has_many :pet_applications
+  has_many :pet_applications, dependent: :destroy
   has_many :pets, through: :pet_applications
-  
-  validates_presence_of :name,
-                        :address,
-                        :city,
-                        :state,
-                        :state,
-                        :zip,
-                        :phone_number,
-                        :description
+
+  validates :name,
+            :address,
+            :city,
+            :state,
+            :state,
+            :zip,
+            :phone_number,
+            :description, presence: true
 end

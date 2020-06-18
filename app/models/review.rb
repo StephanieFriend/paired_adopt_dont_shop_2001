@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Review < ApplicationRecord
   belongs_to :shelter
 
-  validates_presence_of :title,
-                        :rating,
-                        :content
+  validates :title,
+            :rating,
+            :content, presence: true
 end

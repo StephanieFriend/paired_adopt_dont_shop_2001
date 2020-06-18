@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 # require 'rails_helper'
 #
 # RSpec.describe "default review image" do
 #     it "default image is used if user does not sumbit image" do
 #
-#   visit "/shelters/#{@shelter_1.id}/reviews"
+#   visit "/shelters/#{@shelter1.id}/reviews"
 #
 #   fill_in 'Title', with: "Test"
 #   fill_in 'Rating', with: 5
