@@ -2,11 +2,11 @@
 
 class ApplicationsController < ApplicationController
   def index
-    @pet = pet_info
+    @pet = pet_id
   end
 
   def show
-    @application = application_info
+    @application = application_id
     @petapps = @application.pet_applications.all
   end
 
@@ -60,6 +60,6 @@ class ApplicationsController < ApplicationController
   end
 
   def pet_application
-    @pet = pet_info
+    @pet = pet_id
   end
 end

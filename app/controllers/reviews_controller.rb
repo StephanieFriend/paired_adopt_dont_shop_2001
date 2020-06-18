@@ -2,15 +2,15 @@
 
 class ReviewsController < ApplicationController
   def index
-    @reviews = shelter_info
+    @reviews = shelter_id
   end
 
   def new
-    @shelter = shelter_info
+    @shelter = shelter_id
   end
 
   def create
-    @shelter = shelter_info
+    @shelter = shelter_id
     @review = @shelter.reviews.create(review_params)
     if @review.save
       redirect_to "/shelters/#{@shelter.id}"
@@ -21,11 +21,11 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = review_info
+    @review = review_id
   end
 
   def update
-    review = review_info
+    review = review_id
     review.update(review_params)
     if review.save
       redirect_to "/shelters/#{review.shelter.id}"
@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    review = review_info
+    review = review_id
     dynamic_destroy(Review, "/shelters/#{review.shelter.id}")
   end
 end

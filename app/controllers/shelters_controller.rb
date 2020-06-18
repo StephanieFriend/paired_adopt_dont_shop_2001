@@ -19,7 +19,7 @@ class SheltersController < ApplicationController
   end
 
   def edit
-    @shelter = shelter_info
+    @shelter = shelter_id
   end
 
   def update
@@ -34,7 +34,7 @@ class SheltersController < ApplicationController
   end
 
   def destroy
-    shelter = shelter_info
+    shelter = shelter_id
     shelter.pets.each do |pet|
       pet.pet_applications.find_all do |petapp|
         if petapp.approved
@@ -52,7 +52,7 @@ class SheltersController < ApplicationController
   end
 
   def pets
-    @shelter = shelter_info
+    @shelter = shelter_id
     @pets = @shelter.pets.all
   end
 end

@@ -10,19 +10,19 @@ class ApplicationController < ActionController::Base
     redirect_to route
   end
 
-  def shelter_info
+  def shelter_id
     Shelter.find(params[:id])
   end
 
-  def pet_info
+  def pet_id
     Pet.find(params[:id])
   end
 
-  def review_info
+  def review_id
     Review.find(params[:id])
   end
 
-  def application_info
+  def application_id
     Application.find(params[:id])
   end
 
