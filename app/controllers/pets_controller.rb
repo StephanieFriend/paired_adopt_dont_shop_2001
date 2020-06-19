@@ -15,7 +15,7 @@ class PetsController < ApplicationController
     if @pet.save
       redirect_to "/shelters/#{@shelter.id}/pets"
     else
-      flash[:error] = @pet.errors.full_messages.to_sentence
+      flash[:error] = error_msg(@pet)
       redirect_to "/shelters/#{@shelter.id}/pets/new"
     end
   end
@@ -35,7 +35,7 @@ class PetsController < ApplicationController
     if pet.save
       redirect_to "/pets/#{pet.id}"
     else
-      flash[:error] = pet.errors.full_messages.to_sentence
+      flash[:error] = error_msg(pet)
       redirect_to "/pets/#{pet.id}/edit"
     end
   end

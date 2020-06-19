@@ -32,6 +32,8 @@ RSpec.describe 'As a Visitor' do
     click_button 'Submit'
 
     expect(current_path).to eq("/shelters/#{@shelter1.id}/reviews")
-    expect(page).to have_content('All fields are required')
+    expect(page).to have_content("Title can't be blank")
+    expect(page).to have_content("Rating can't be blank")
+    expect(page).to have_content("Content can't be blank")
   end
 end

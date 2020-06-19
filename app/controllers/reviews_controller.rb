@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to "/shelters/#{@shelter.id}"
     else
-      flash[:notice] = 'All fields are required'
+      flash[:error] = error_msg(@review)
       redirect_to "/shelters/#{@shelter.id}/reviews"
     end
   end

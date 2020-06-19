@@ -13,7 +13,7 @@ class SheltersController < ApplicationController
       flash[:created] = 'Your Shelter has been added!'
       redirect_to '/shelters'
     else
-      flash[:error] = new_shelter.errors.full_messages.to_sentence
+      flash[:error] = error_msg(new_shelter)
       redirect_to '/shelters/new'
     end
   end
@@ -28,7 +28,7 @@ class SheltersController < ApplicationController
       flash[:updated] = 'Your Shelter has been updated!'
       redirect_to "/shelters/#{updated_shelter.id}"
     else
-      flash[:error] = updated_shelter.errors.full_messages.to_sentence
+      flash[:error] = error_msg(updated_shelter)
       redirect_to "/shelters/#{updated_shelter.id}/edit"
     end
   end

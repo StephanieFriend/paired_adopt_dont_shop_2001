@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def error_msg(object)
+    object.errors.full_messages.to_sentence
+  end
+
   def dynamic_destroy(object, route)
     object.destroy(params[:id])
     redirect_to route
