@@ -5,15 +5,15 @@
 <main>
 	<section>
 	<%= form_tag("/pets/#{@pet.id}", method: :patch) do %>
-	  <%= label_tag "Image:" %>
-	  <%= text_field_tag :image, @pet.image %><br/><br/>
-	  <%= label_tag "Name:" %>
-	  <%= text_field_tag :name, @pet.name %><br/><br/>
-	  <%= label_tag "Description:" %>
-	  <%= text_field_tag :description, @pet.description %><br/><br/>
-	  <%= label_tag "Age (approx):" %>
-	  <%= text_field_tag :age, @pet.age%><br/><br/>
-	  <%= label_tag "Sex:" %>
+	  <%= label_tag "Image" %>
+	  <%= text_field_tag :image, @pet.image %><br>
+	  <%= label_tag "Name" %>
+	  <%= text_field_tag :name, @pet.name %><br>
+	  <%= label_tag "Description" %>
+	  <%= text_field_tag :description, @pet.description %><br>
+	  <%= label_tag "Age (approx)" %>
+	  <%= text_field_tag :age, @pet.age%><br>
+	  <%= label_tag "Sex" %>
 	  <%= text_field_tag :sex, @pet.sex%>
       <br/><br/>
 	<button type="submit" class="btn btn-primary">Submit</button>
