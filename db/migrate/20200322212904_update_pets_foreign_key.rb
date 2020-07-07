@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpdatePetsForeignKey < ActiveRecord::Migration[5.1]
   def change
     # remove the old foreign_key

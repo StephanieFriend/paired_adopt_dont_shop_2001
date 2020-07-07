@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAdoptApplications < ActiveRecord::Migration[5.1]
   def change
     create_table :applications do |t|
@@ -8,6 +10,8 @@ class CreateAdoptApplications < ActiveRecord::Migration[5.1]
       t.string :zip
       t.string :phone_number
       t.string :description
+
+      t.timestamps
     end
   end
 end

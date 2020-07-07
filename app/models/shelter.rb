@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 class Shelter < ApplicationRecord
   has_many :pets, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  validates_presence_of :name,
-                        :address,
-                        :city,
-                        :state,
-                        :zip
+  validates :name,
+            :address,
+            :city,
+            :state,
+            :zip, presence: true
 
   def pet_count
-   pets.count
+    pets.count
   end
 
   def review_count

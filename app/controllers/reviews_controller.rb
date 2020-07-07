@@ -1,40 +1,42 @@
+# frozen_string_literal: true
+
 class ReviewsController < ApplicationController
   def index
-    @reviews = get_shelter_info
+    @reviews = shelter_id
   end
 
   def new
-    @shelter = get_shelter_info
+    @shelter = shelter_id
   end
 
   def create
-    @shelter = get_shelter_info
+    @shelter = shelter_id
     @review = @shelter.reviews.create(review_params)
     if @review.save
       redirect_to "/shelters/#{@shelter.id}"
     else
-      flash[:notice] = "All fields are required"
+      flash[:error] = error_msg(@review)
       redirect_to "/shelters/#{@shelter.id}/reviews"
     end
   end
 
   def edit
-    @review = get_review_info
+    @review = review_id
   end
 
   def update
-    review = get_review_info
+    review = review_id
     review.update(review_params)
     if review.save
       redirect_to "/shelters/#{review.shelter.id}"
     else
-      flash[:notice] = "All fields are required"
+      flash[:notice] = 'All fields are required'
       redirect_to "/reviews/#{review.id}/edit"
     end
   end
 
   def destroy
-    review = get_review_info
+    review = review_id
     dynamic_destroy(Review, "/shelters/#{review.shelter.id}")
   end
 end

@@ -1,0 +1,45 @@
+# inherit_from: .rubocop_todo.yml
+
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'coverage/**/*'
+    - 'node_modules/**/*'
+    - 'db/schema.rb'
+    - 'spec/spec_helper.rb'
+    - 'app/models/user.rb'
+
+
+Metrics/BlockLength:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Lint/NonLocalExitFromIterator:
+  Enabled: false
+
+Style/IfInsideElse:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
